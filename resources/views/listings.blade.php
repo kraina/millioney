@@ -18,11 +18,11 @@
 
 <div class="super_container">
 	<div class="super_overlay"></div>
-	
+
 	<!-- Header -->
 
 	<header class="header">
-		
+
 		<!-- Header Bar -->
 		<div class="header_bar d-flex flex-row align-items-center justify-content-start">
 			<div class="header_list">
@@ -68,7 +68,7 @@
 			<div class="logo"><a href="#">my<span>home</span></a></div>
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.blade.php">Home</a></li>
 					<li><a href="about.html">About us</a></li>
 					<li class="active"><a href="listings.html">Listings</a></li>
 					<li><a href="blog.html">News</a></li>
@@ -94,7 +94,7 @@
 			</div>
 			<nav class="menu_nav">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.blade.php">Home</a></li>
 					<li><a href="about.html">About us</a></li>
 					<li><a href="listings.html">Listings</a></li>
 					<li><a href="blog.html">News</a></li>
@@ -154,10 +154,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					
+
 					<!-- Sorting -->
 					<div class="sorting d-flex flex-md-row flex-column align-items-start justify-content-start">
-						
+
 						<!-- Tags -->
 						<div class="listing_tags">
 							<ul class="d-flex flex-row align-items-start justify-content-start flex-wrap">
@@ -187,7 +187,7 @@
 
 					<!-- Listings Container -->
 					<div class="listings_container">
-						
+
 						<!-- Listing -->
 						<div class="listing_box house sale">
 							<div class="listing">
@@ -581,7 +581,7 @@
 		<div class="footer_content">
 			<div class="container">
 				<div class="row">
-					
+
 					<!-- Footer Column -->
 					<div class="col-xl-3 col-lg-6 footer_col">
 						<div class="footer_about">
@@ -708,7 +708,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 							<nav class="footer_nav order-md-2 order-1 ml-md-auto">
 								<ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.blade.php">Home</a></li>
 									<li><a href="about.html">About us</a></li>
 									<li><a href="listings.html">Listings</a></li>
 									<li><a href="blog.html">News</a></li>

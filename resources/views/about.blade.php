@@ -18,11 +18,11 @@
 
 <div class="super_container">
 	<div class="super_overlay"></div>
-	
+
 	<!-- Header -->
 
 	<header class="header">
-		
+
 		<!-- Header Bar -->
 		<div class="header_bar d-flex flex-row align-items-center justify-content-start">
 			<div class="header_list">
@@ -68,7 +68,7 @@
 			<div class="logo"><a href="#">my<span>home</span></a></div>
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.blade.php">Home</a></li>
 					<li class="active"><a href="about.html">About us</a></li>
 					<li><a href="listings.html">Listings</a></li>
 					<li><a href="blog.html">News</a></li>
@@ -94,7 +94,7 @@
 			</div>
 			<nav class="menu_nav">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.blade.php">Home</a></li>
 					<li><a href="about.html">About us</a></li>
 					<li><a href="listings.html">Listings</a></li>
 					<li><a href="blog.html">News</a></li>
@@ -124,7 +124,7 @@
 	<div class="intro">
 		<div class="container">
 			<div class="row row-eq-height">
-				
+
 				<!-- Intro Content -->
 				<div class="col-lg-6">
 					<div class="intro_content">
@@ -164,7 +164,7 @@
 				</div>
 			</div>
 			<div class="row services_row">
-				
+
 				<!-- Service -->
 				<div class="col-xl-4 col-md-6">
 					<div class="service">
@@ -264,7 +264,7 @@
 	<div class="milestones">
 		<div class="container">
 			<div class="row">
-				
+
 				<!-- Milestone -->
 				<div class="col-xl-3 col-md-6 milestone_col">
 					<div class="milestone d-flex flex-row align-items-start justify-content-md-center justify-content-start">
@@ -326,7 +326,7 @@
 				</div>
 			</div>
 			<div class="row agents_row">
-				
+
 				<!-- Agent -->
 				<div class="col-lg-4 agent_col">
 					<div class="agent">
@@ -414,7 +414,7 @@
 		<div class="footer_content">
 			<div class="container">
 				<div class="row">
-					
+
 					<!-- Footer Column -->
 					<div class="col-xl-3 col-lg-6 footer_col">
 						<div class="footer_about">
@@ -541,7 +541,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 							<nav class="footer_nav order-md-2 order-1 ml-md-auto">
 								<ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.blade.php">Home</a></li>
 									<li><a href="about.html">About us</a></li>
 									<li><a href="listings.html">Listings</a></li>
 									<li><a href="blog.html">News</a></li>
