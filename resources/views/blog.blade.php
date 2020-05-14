@@ -66,10 +66,10 @@
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					<li><a href="index.blade.php">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="listings.html">Listings</a></li>
-					<li class="active"><a href="blog.html">News</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.blade.php">About us</a></li>
+					<li><a href="listings.blade.php">Listings</a></li>
+					<li class="active"><a href="blog.blade.php">News</a></li>
+					<li><a href="contact.blade.php">Contact</a></li>
 				</ul>
 			</nav>
 			<div class="submit ml-auto"><a href="#">submit listing</a></div>
@@ -92,10 +92,10 @@
 			<nav class="menu_nav">
 				<ul>
 					<li><a href="index.blade.php">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="listings.html">Listings</a></li>
-					<li><a href="blog.html">News</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.blade.php">About us</a></li>
+					<li><a href="listings.blade.php">Listings</a></li>
+					<li><a href="blog.blade.php">News</a></li>
+					<li><a href="contact.blade.php">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -283,7 +283,7 @@
 						<!-- Extra -->
 						<div class="extra d-flex flex-column align-items-start justify-content-start">
 							<div class="background_image" style="background-image:url(images/extra.jpg)"></div>
-							<div class="extra_button"><a href="listings.html">Need a Property?</a></div>
+							<div class="extra_button"><a href="listings.blade.php">Need a Property?</a></div>
 							<div class="extra_phone_container mt-auto">
 								<div>Call Maria Smith</div>
 								<div>00349 566 77892</div>
@@ -298,15 +298,15 @@
 										<img src="images/listing_6.jpg" alt="">
 									</div>
 									<div class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="listing_small_tag tag_house"><a href="listings.html">house</a></div>
-										<div class="listing_small_tag tag_sale"><a href="listings.html">for sale</a></div>
+										<div class="listing_small_tag tag_house"><a href="listings.blade.php">house</a></div>
+										<div class="listing_small_tag tag_sale"><a href="listings.blade.php">for sale</a></div>
 									</div>
 									<div class="listing_small_price">$ 562 346</div>
 								</div>
 								<div class="listing_small_content">
 									<div class="listing_small_location d-flex flex-row align-items-start justify-content-start">
 										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
+										<a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_small_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -424,15 +424,15 @@
 									<img src="images/listing_1.jpg" alt="">
 								</div>
 								<div class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-									<div class="listing_small_tag tag_house"><a href="listings.html">house</a></div>
-									<div class="listing_small_tag tag_sale"><a href="listings.html">for sale</a></div>
+									<div class="listing_small_tag tag_house"><a href="listings.blade.php">house</a></div>
+									<div class="listing_small_tag tag_sale"><a href="listings.blade.php">for sale</a></div>
 								</div>
 								<div class="listing_small_price">$ 562 346</div>
 							</div>
 							<div class="listing_small_content">
 								<div class="listing_small_location d-flex flex-row align-items-start justify-content-start">
 									<img src="images/icon_1.png" alt="">
-									<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
+									<a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
 								</div>
 								<div class="listing_small_info">
 									<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -468,10 +468,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 							<nav class="footer_nav order-md-2 order-1 ml-md-auto">
 								<ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
 									<li><a href="index.blade.php">Home</a></li>
-									<li><a href="about.html">About us</a></li>
-									<li><a href="listings.html">Listings</a></li>
-									<li><a href="blog.html">News</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="about.blade.php">About us</a></li>
+									<li><a href="listings.blade.php">Listings</a></li>
+									<li><a href="blog.blade.php">News</a></li>
+									<li><a href="contact.blade.php">Contact</a></li>
 								</ul>
 							</nav>
 						</div>

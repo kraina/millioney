@@ -18,11 +18,11 @@
 
 <div class="super_container">
 	<div class="super_overlay"></div>
-	
+
 	<!-- Header -->
 
 	<header class="header">
-		
+
 		<!-- Header Bar -->
 		<div class="header_bar d-flex flex-row align-items-center justify-content-start">
 			<div class="header_list">
@@ -68,11 +68,11 @@
 			<div class="logo"><a href="#">my<span>home</span></a></div>
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="listings.html">Listings</a></li>
-					<li><a href="blog.html">News</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li class="active"><a href="index.blade.php">Home</a></li>
+					<li><a href="about.blade.php">About us</a></li>
+					<li><a href="listings.blade.php">Listings</a></li>
+					<li><a href="blog.blade.php">News</a></li>
+					<li><a href="contact.blade.php">Contact</a></li>
 				</ul>
 			</nav>
 			<div class="submit ml-auto"><a href="#">submit listing</a></div>
@@ -94,11 +94,11 @@
 			</div>
 			<nav class="menu_nav">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="listings.html">Listings</a></li>
-					<li><a href="blog.html">News</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="index.blade.php">Home</a></li>
+					<li><a href="about.blade.php">About us</a></li>
+					<li><a href="listings.blade.php">Listings</a></li>
+					<li><a href="blog.blade.php">News</a></li>
+					<li><a href="contact.blade.php">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -107,11 +107,11 @@
 	<!-- Home -->
 
 	<div class="home">
-		
+
 		<!-- Home Slider -->
 		<div class="home_slider_container">
 			 <div class="owl-carousel owl-theme home_slider">
-			 	
+
 			 	<!-- Slide -->
 			 	<div class="slide">
 			 		<div class="background_image" style="background-image:url(images/index.jpg)"></div>
@@ -167,7 +167,7 @@
 
 			 <!-- Home Slider Navigation -->
 			 <div class="home_slider_nav"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-			 
+
 		</div>
 	</div>
 
@@ -210,7 +210,7 @@
 				</div>
 			</div>
 			<div class="row featured_row">
-				
+
 				<!-- Featured Item -->
 				<div class="col-lg-4">
 					<div class="listing">
@@ -219,15 +219,15 @@
 								<img src="images/listing_1.jpg" alt="">
 							</div>
 							<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-								<div class="tag tag_house"><a href="listings.html">house</a></div>
-								<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
+								<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
+								<div class="tag tag_sale"><a href="listings.blade.php">for sale</a></div>
 							</div>
 							<div class="tag_price listing_price">$ 217 346</div>
 						</div>
 						<div class="listing_content">
 							<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 								<img src="images/icon_1.png" alt="">
-								<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
+								<a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
 							</div>
 							<div class="listing_info">
 								<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -261,15 +261,15 @@
 								<img src="images/listing_2.jpg" alt="">
 							</div>
 							<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-								<div class="tag tag_house"><a href="listings.html">house</a></div>
-								<div class="tag tag_rent"><a href="listings.html">for rent</a></div>
+								<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
+								<div class="tag tag_rent"><a href="listings.blade.php">for rent</a></div>
 							</div>
 							<div class="tag_price listing_price">$ 515 957</div>
 						</div>
 						<div class="listing_content">
 							<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 								<img src="images/icon_1.png" alt="">
-								<a href="single.html">4812 Haul Road Saint Paul, MN 55102</a>
+								<a href="single.blade.php">4812 Haul Road Saint Paul, MN 55102</a>
 							</div>
 							<div class="listing_info">
 								<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -303,15 +303,15 @@
 								<img src="images/listing_3.jpg" alt="">
 							</div>
 							<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-								<div class="tag tag_house"><a href="listings.html">house</a></div>
-								<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
+								<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
+								<div class="tag tag_sale"><a href="listings.blade.php">for sale</a></div>
 							</div>
 							<div class="tag_price listing_price">$ 375 255</div>
 						</div>
 						<div class="listing_content">
 							<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 								<img src="images/icon_1.png" alt="">
-								<a href="single.html">4067 Wolf Pen Road Mountain View, CA 94041</a>
+								<a href="single.blade.php">4067 Wolf Pen Road Mountain View, CA 94041</a>
 							</div>
 							<div class="listing_info">
 								<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -371,7 +371,7 @@
 							<div class="section_title"><h1>Choose a location</h1></div>
 						</div>
 						<div class="locations_list d-flex flex-column align-items-start justify-content-start">
-							<label class="location_contaner" data-lat="25.794923" data-lng="-80.133661"> 
+							<label class="location_contaner" data-lat="25.794923" data-lng="-80.133661">
 								<input type="radio" name="location_radio">
 								<span></span>
 								Downtown Miami
@@ -432,14 +432,14 @@
 				</div>
 			</div>
 			<div class="row hot_row row-eq-height">
-				
+
 				<!-- Hot Deal Image -->
 				<div class="col-lg-6">
 					<div class="hot_image">
 						<div class="background_image" style="background-image:url(images/hot.jpg)"></div>
 						<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-							<div class="tag tag_house"><a href="listings.html">house</a></div>
-							<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
+							<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
+							<div class="tag tag_sale"><a href="listings.blade.php">for sale</a></div>
 						</div>
 					</div>
 				</div>
@@ -506,7 +506,7 @@
 	<div class="testimonials container_reset">
 		<div class="container">
 			<div class="row row-eq-height">
-				
+
 				<!-- Testimonials Image -->
 				<div class="col-xl-6">
 					<div class="testimonials_image">
@@ -526,7 +526,7 @@
 						<!-- Testimonials Slider -->
 						<div class="testimonials_slider_container">
 							<div class="owl-carousel owl-theme test_slider">
-								
+
 								<!-- Slide -->
 								<div class="test_slide">
 									<div class="test_quote">"They helped us find our home"</div>
@@ -567,7 +567,7 @@
 		<div class="footer_content">
 			<div class="container">
 				<div class="row">
-					
+
 					<!-- Footer Column -->
 					<div class="col-xl-3 col-lg-6 footer_col">
 						<div class="footer_about">
@@ -651,15 +651,15 @@
 									<img src="images/listing_1.jpg" alt="">
 								</div>
 								<div class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-									<div class="listing_small_tag tag_house"><a href="listings.html">house</a></div>
-									<div class="listing_small_tag tag_sale"><a href="listings.html">for sale</a></div>
+									<div class="listing_small_tag tag_house"><a href="listings.blade.php">house</a></div>
+									<div class="listing_small_tag tag_sale"><a href="listings.blade.php">for sale</a></div>
 								</div>
 								<div class="listing_small_price">$ 562 346</div>
 							</div>
 							<div class="listing_small_content">
 								<div class="listing_small_location d-flex flex-row align-items-start justify-content-start">
 									<img src="images/icon_1.png" alt="">
-									<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
+									<a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
 								</div>
 								<div class="listing_small_info">
 									<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -694,11 +694,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 							<nav class="footer_nav order-md-2 order-1 ml-md-auto">
 								<ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About us</a></li>
-									<li><a href="listings.html">Listings</a></li>
-									<li><a href="blog.html">News</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="index.blade.php">Home</a></li>
+									<li><a href="about.blade.php">About us</a></li>
+									<li><a href="listings.blade.php">Listings</a></li>
+									<li><a href="blog.blade.php">News</a></li>
+									<li><a href="contact.blade.php">Contact</a></li>
 								</ul>
 							</nav>
 						</div>
