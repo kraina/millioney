@@ -31,3 +31,11 @@ Route::get('/listings', function () {
 Route::get('/single', function () {
     return view('single');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
