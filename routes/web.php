@@ -15,27 +15,26 @@ use Illuminate\Support\Facades\Route;
 /*
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 */
 Route::get('/', function () {
     return view('index');
 })->name('index');
-
 Route::get('/blog', function () {
     return view('blog');
-});
+})->name('blog');
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');;
 Route::get('/listings', function () {
     return view('listings');
-});
+})->name('listings');
 Route::get('/single', function () {
     return view('single');
-});
+})->name('single');
 
 
 Auth::routes();
