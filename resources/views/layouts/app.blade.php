@@ -55,12 +55,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @can('manage-users')
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}" >
+                                        {{ __('Users Management') }}
+                                    </a>
+                                    @endcan
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -73,7 +77,10 @@
         </nav>
 
         <main class="py-4">
+            <div class="container" >
+            @include('partials.alerts')
             @yield('content')
+            </div>
         </main>
     </div>
 </body>
