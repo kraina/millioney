@@ -2665,7 +2665,7 @@
 					}
 				} else if (e.namespace && e.property.name === 'position' && this._paused) {
 					// Reset the timer. This code is triggered when the position
-					// of the carousel was changed through user interaction.
+					// of the carousel was changed through users interaction.
 					this._time = 0;
 				}
 			}, this),
@@ -2871,7 +2871,7 @@
 		this._pages = [];
 
 		/**
-		 * All DOM elements of the user interface.
+		 * All DOM elements of the users interface.
 		 * @protected
 		 * @type {Object}
 		 */
@@ -3113,7 +3113,7 @@
 	};
 
 	/**
-	 * Draws the user interface.
+	 * Draws the users interface.
 	 * @todo The option `dotsData` wont work.
 	 * @protected
 	 */
