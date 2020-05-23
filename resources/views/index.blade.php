@@ -131,15 +131,15 @@
 								<img src="images/listing_1.jpg" alt="">
 							</div>
 							<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-								<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
-								<div class="tag tag_sale"><a href="listings.blade.php">for sale</a></div>
+								<div class="tag tag_house"><a href="{{ route("listings") }}">house</a></div>
+								<div class="tag tag_sale"><a href="{{ route("listings") }}">for sale</a></div>
 							</div>
 							<div class="tag_price listing_price">$ 217 346</div>
 						</div>
 						<div class="listing_content">
 							<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 								<img src="images/icon_1.png" alt="">
-								<a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
+								<a href="{{ route("single") }}">280 Doe Meadow Drive Landover, MD 20785</a>
 							</div>
 							<div class="listing_info">
 								<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -173,15 +173,15 @@
 								<img src="images/listing_2.jpg" alt="">
 							</div>
 							<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-								<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
-								<div class="tag tag_rent"><a href="listings.blade.php">for rent</a></div>
+								<div class="tag tag_house"><a href="{{ route("listings") }}">house</a></div>
+								<div class="tag tag_rent"><a href="{{ route("listings") }}">for rent</a></div>
 							</div>
 							<div class="tag_price listing_price">$ 515 957</div>
 						</div>
 						<div class="listing_content">
 							<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 								<img src="images/icon_1.png" alt="">
-								<a href="single.blade.php">4812 Haul Road Saint Paul, MN 55102</a>
+								<a href="{{ route("single") }}">4812 Haul Road Saint Paul, MN 55102</a>
 							</div>
 							<div class="listing_info">
 								<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -215,15 +215,15 @@
 								<img src="images/listing_3.jpg" alt="">
 							</div>
 							<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-								<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
-								<div class="tag tag_sale"><a href="listings.blade.php">for sale</a></div>
+								<div class="tag tag_house"><a href="{{ route("listings") }}">house</a></div>
+								<div class="tag tag_sale"><a href="{{ route("listings") }}">for sale</a></div>
 							</div>
 							<div class="tag_price listing_price">$ 375 255</div>
 						</div>
 						<div class="listing_content">
 							<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 								<img src="images/icon_1.png" alt="">
-								<a href="single.blade.php">4067 Wolf Pen Road Mountain View, CA 94041</a>
+								<a href="{{ route("single") }}">4067 Wolf Pen Road Mountain View, CA 94041</a>
 							</div>
 							<div class="listing_info">
 								<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -350,8 +350,8 @@
 					<div class="hot_image">
 						<div class="background_image" style="background-image:url(images/hot.jpg)"></div>
 						<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-							<div class="tag tag_house"><a href="listings.blade.php">house</a></div>
-							<div class="tag tag_sale"><a href="listings.blade.php">for sale</a></div>
+							<div class="tag tag_house"><a href="{{ route("listings") }}">house</a></div>
+							<div class="tag tag_sale"><a href="{{ route("listings") }}">for sale</a></div>
 						</div>
 					</div>
 				</div>

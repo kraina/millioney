@@ -193,7 +193,7 @@
 						<!-- Extra -->
 						<div class="extra d-flex flex-column align-items-start justify-content-start">
 							<div class="background_image" style="background-image:url(images/extra.jpg)"></div>
-							<div class="extra_button"><a href="listings.blade.php">Need a Property?</a></div>
+							<div class="extra_button"><a href="{{ route('listings') }}">Need a Property?</a></div>
 							<div class="extra_phone_container mt-auto">
 								<div>Call Maria Smith</div>
 								<div>00349 566 77892</div>
@@ -208,15 +208,15 @@
 										<img src="images/listing_6.jpg" alt="">
 									</div>
 									<div class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="listing_small_tag tag_house"><a href="listings.blade.php">house</a></div>
-										<div class="listing_small_tag tag_sale"><a href="listings.blade.php">for sale</a></div>
+										<div class="listing_small_tag tag_house"><a href="{{ route('listings') }}">house</a></div>
+										<div class="listing_small_tag tag_sale"><a href="{{ route('listings') }}">for sale</a></div>
 									</div>
 									<div class="listing_small_price">$ 562 346</div>
 								</div>
 								<div class="listing_small_content">
 									<div class="listing_small_location d-flex flex-row align-items-start justify-content-start">
 										<img src="images/icon_1.png" alt="">
-										<a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
+										<a href="{{ route("single") }}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_small_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">

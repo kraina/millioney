@@ -36,9 +36,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    @can('manage-users')
-                        <a class="dropdown-item" href="{{ route('admin.users.index') }}" >
-                            {{ __('Users Management') }}
+                    <a class="dropdown-item" href="{{ route('home') }}" >
+                        {{ __('Home') }}
+                    </a>
+                    @can('super-admin')
+                        <a class="dropdown-item" href="{{ route('admin.super.index') }}" >
+                            {{ __('Super Admin Panel') }}
                         </a>
                     @endcan
                     <a class="dropdown-item" href="{{ route('logout') }}"
