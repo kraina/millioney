@@ -45,5 +45,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 /** Route::resource('/admin/users', 'Admin\UsersController', ['except' => ['show', 'create', 'store']]); */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+    Route::resource('/', 'UsersController', ['except' => ['show', 'create', 'store']]);
+
+
 });
+Route::namespace('Admin')->prefix('admin.super')->name('admin.super.')->middleware('can:super-admin')->group(function(){
+    Route::resource('/', 'SuperAdminController', ['except' => ['show', 'create', 'store']]);
+});
+
 
