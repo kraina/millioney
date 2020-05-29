@@ -120,7 +120,7 @@
                                     <div class="listing_content">
                                         <div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
                                             <img src="{{asset('images/icon_1.png')}}" alt="">
-                                            <a href="{{route('property', $property->slug)}}">{{ $property->address }}</a>
+                                            <a href="properties/{{ $property->slug }}">{{ $property->address }}</a>
                                         </div>
                                         <div class="listing_info">
                                             <ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
