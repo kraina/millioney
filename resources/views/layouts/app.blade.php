@@ -79,6 +79,7 @@
         <main class="py-4">
             <div class="container" >
             @include('partials.alerts')
+            @include('partials.messages')
             @yield('content')
             </div>
         </main>

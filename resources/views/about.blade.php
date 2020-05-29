@@ -1,21 +1,21 @@
 @extends('layouts.default')
 @section('title', 'About us')
 @section('style')
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/about.css">
-<link rel="stylesheet" type="text/css" href="styles/about_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.3.4/owl.carousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.3.4/owl.theme.default.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.3.4/animate.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/about.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/about_responsive.css')}}">
 @endsection
 @section('script')
-<script src="plugins/OwlCarousel2-2.3.4/owl.carousel.js"></script>
-<script src="js/about.js"></script>
+<script src="{{asset('plugins/OwlCarousel2-2.3.4/owl.carousel.js')}}"></script>
+<script src="{{asset('js/about.js')}}"></script>
 @endsection
 @section("content")
     <!-- Home -->
 
 	<div class="home">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/about.jpg" data-speed="0.8"></div>
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{asset('images/about.jpg')}}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -51,7 +51,7 @@
 				<div class="col-lg-6 intro_col">
 					<div class="intro_image">
 						<div class="background_image" style="background-image:url(images/intro.jpg)"></div>
-						<img src="images/intro.jpg" alt="">
+						<img src="{{asset('images/intro.jpg')}}" alt="">
 					</div>
 				</div>
 
@@ -78,7 +78,7 @@
 					<div class="service">
 						<div class="service_title_container d-flex flex-row align-items-center justify-content-start">
 							<div class="service_icon d-flex flex-column align-items-start justify-content-center">
-								<img src="images/service_1.png" alt="">
+								<img src="{{asset('images/service_1.png')}}" alt="">
 							</div>
 							<div class="service_title"><h3>Consulting</h3></div>
 						</div>
@@ -93,7 +93,7 @@
 					<div class="service">
 						<div class="service_title_container d-flex flex-row align-items-center justify-content-start">
 							<div class="service_icon d-flex flex-column align-items-start justify-content-center">
-								<img src="images/service_2.png" alt="">
+								<img src="{{asset('images/service_2.png')}}" alt="">
 							</div>
 							<div class="service_title"><h3>Real estate sales</h3></div>
 						</div>
@@ -108,7 +108,7 @@
 					<div class="service">
 						<div class="service_title_container d-flex flex-row align-items-center justify-content-start">
 							<div class="service_icon d-flex flex-column align-items-start justify-content-center">
-								<img src="images/service_3.png" alt="">
+								<img src="{{asset('images/service_3.png')}}" alt="">
 							</div>
 							<div class="service_title"><h3>Renting</h3></div>
 						</div>
@@ -123,7 +123,7 @@
 					<div class="service">
 						<div class="service_title_container d-flex flex-row align-items-center justify-content-start">
 							<div class="service_icon d-flex flex-column align-items-start justify-content-center">
-								<img src="images/service_4.png" alt="">
+								<img src="{{asset('images/service_4.png')}}" alt="">
 							</div>
 							<div class="service_title"><h3>Meditation</h3></div>
 						</div>
@@ -138,7 +138,7 @@
 					<div class="service">
 						<div class="service_title_container d-flex flex-row align-items-center justify-content-start">
 							<div class="service_icon d-flex flex-column align-items-start justify-content-center">
-								<img src="images/service_5.png" alt="">
+								<img src="{{asset('images/service_5.png')}}" alt="">
 							</div>
 							<div class="service_title"><h3>Evaluation</h3></div>
 						</div>
@@ -153,7 +153,7 @@
 					<div class="service">
 						<div class="service_title_container d-flex flex-row align-items-center justify-content-start">
 							<div class="service_icon d-flex flex-column align-items-start justify-content-center">
-								<img src="images/service_6.png" alt="">
+								<img src="{{asset('images/service_6.png')}}" alt="">
 							</div>
 							<div class="service_title"><h3>Price Consulting</h3></div>
 						</div>
@@ -177,7 +177,7 @@
 				<div class="col-xl-3 col-md-6 milestone_col">
 					<div class="milestone d-flex flex-row align-items-start justify-content-md-center justify-content-start">
 						<div class="milestone_content">
-							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="images/duplex.svg" alt=""></div>
+							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="{{asset('images/duplex.svg')}}" alt=""></div>
 							<div class="milestone_counter" data-end-value="425">0</div>
 							<div class="milestone_text">homes sold</div>
 						</div>
@@ -188,7 +188,7 @@
 				<div class="col-xl-3 col-md-6 milestone_col">
 					<div class="milestone d-flex flex-row align-items-start justify-content-md-center justify-content-start">
 						<div class="milestone_content">
-							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="images/prize.svg" alt=""></div>
+							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="{{asset('images/prize.svg')}}" alt=""></div>
 							<div class="milestone_counter" data-end-value="18">0</div>
 							<div class="milestone_text">awards</div>
 						</div>
@@ -199,7 +199,7 @@
 				<div class="col-xl-3 col-md-6 milestone_col">
 					<div class="milestone d-flex flex-row align-items-start justify-content-md-center justify-content-start">
 						<div class="milestone_content">
-							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="images/home.svg" alt=""></div>
+							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="{{asset('images/home.svg')}}" alt=""></div>
 							<div class="milestone_counter" data-end-value="25" data-sign-after="k">0</div>
 							<div class="milestone_text">followers</div>
 						</div>
@@ -210,7 +210,7 @@
 				<div class="col-xl-3 col-md-6 milestone_col">
 					<div class="milestone d-flex flex-row align-items-start justify-content-md-center justify-content-start">
 						<div class="milestone_content">
-							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="images/rent.svg" alt=""></div>
+							<div class="milestone_icon d-flex flex-column align-items-start justify-content-center"><img src="{{asset('images/rent.svg')}}" alt=""></div>
 							<div class="milestone_counter" data-end-value="1265">0</div>
 							<div class="milestone_text">rentals</div>
 						</div>
@@ -238,7 +238,7 @@
 				<!-- Agent -->
 				<div class="col-lg-4 agent_col">
 					<div class="agent">
-						<div class="agent_image"><img src="images/realtor_1.jpg" alt=""></div>
+						<div class="agent_image"><img src="{{asset('images/realtor_1.jpg')}}" alt=""></div>
 						<div class="agent_content">
 							<div class="agent_name"><a href="#">Michael Smith</a></div>
 							<div class="agent_title">Buying Agent</div>
@@ -262,7 +262,7 @@
 				<!-- Agent -->
 				<div class="col-lg-4 agent_col">
 					<div class="agent">
-						<div class="agent_image"><img src="images/realtor_2.jpg" alt=""></div>
+						<div class="agent_image"><img src="{{asset('images/realtor_2.jpg')}}" alt=""></div>
 						<div class="agent_content">
 							<div class="agent_name"><a href="#">Jane Williams</a></div>
 							<div class="agent_title">Buying Agent</div>
@@ -286,7 +286,7 @@
 				<!-- Agent -->
 				<div class="col-lg-4 agent_col">
 					<div class="agent">
-						<div class="agent_image"><img src="images/realtor_3.jpg" alt=""></div>
+						<div class="agent_image"><img src="{{asset('images/realtor_3.jpg')}}" alt=""></div>
 						<div class="agent_content">
 							<div class="agent_name"><a href="#">Carla Brown</a></div>
 							<div class="agent_title">Buying Agent</div>

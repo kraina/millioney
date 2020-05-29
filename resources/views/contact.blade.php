@@ -2,20 +2,20 @@
 @section('title', 'Contact')
 
 @section('style')
-<link rel="stylesheet" type="text/css" href="styles/contact.css">
-<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/contact.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
 @endsection
 
 @section('script')
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="js/contact.js"></script>
+<script src="{{asset('js/contact.js')}}"></script>
 @endsection
 
 @section("content")
 	<!-- Home -->
 
 	<div class="home">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/blog.jpg" data-speed="0.8"></div>
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{asset('images/blog.jpg')}}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -55,19 +55,19 @@
 						<ul>
 							<li class="d-flex flex-row align-items-center justify-content-start">
 								<div class="d-flex flex-column align-items-center justify-content-center">
-									<div><img src="images/placeholder_2.svg" alt=""></div>
+									<div><img src="{{asset('images/placeholder_2.svg')}}" alt=""></div>
 								</div>
 								<span>Main Str, no 23, New York</span>
 							</li>
 							<li class="d-flex flex-row align-items-center justify-content-start">
 								<div class="d-flex flex-column align-items-center justify-content-center">
-									<div><img src="images/phone-call-2.svg" alt=""></div>
+									<div><img src="{{asset('images/phone-call-2.svg')}}" alt=""></div>
 								</div>
 								<span>+546 990221 123</span>
 							</li>
 							<li class="d-flex flex-row align-items-center justify-content-start">
 								<div class="d-flex flex-column align-items-center justify-content-center">
-									<div><img src="images/envelope-2.svg" alt=""></div>
+									<div><img src="{{asset('images/envelope-2.svg')}}" alt=""></div>
 								</div>
 								<span>hosting@contact.com</span>
 							</li>
@@ -78,7 +78,7 @@
 				<!-- Contact - Image -->
 				<div class="col-lg-4 contact_col">
 					<div class="contact_image d-flex flex-column align-items-center justify-content-center">
-						<img src="images/contact_image.jpg" alt="">
+						<img src="{{asset('images/contact_image.jpg')}}" alt="">
 					</div>
 				</div>
 

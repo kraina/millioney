@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_content text-center">
-						<div class="home_title">Listings</div>
+						<div class="home_title">Categories</div>
 					</div>
 				</div>
 			</div>
@@ -35,6 +35,9 @@
 	<!-- Search -->
 
 	<div class="search">
+        @foreach($categories as $category)
+            <div style="margin-left: 45%; margin-bottom: 1%;"><a href="{{ route('category', $category->slug ) }}" >{{$category->title }}</a></div>
+        @endforeach
 		<div class="container">
 			<div class="row">
 				<div class="col">

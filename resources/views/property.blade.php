@@ -32,7 +32,7 @@
 	<!-- Search -->
 
 	<div class="search">
-        <div style="margin-top: -4%; margin-left: 50%;"><h1>{{ $item }}</h1></div>
+        <div style="margin-top: -4%; margin-left: 50%;"><h1>{{ $property->title }}</h1></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -63,7 +63,7 @@
 				<div class="col">
 
 					<!-- Image -->
-					<div class="listing_image"><img src="{{asset('images/listing.jpg')}}" alt=""></div>
+					<div class="listing_image"><img src="{{asset('images/property'.$property->propertyID.'_0.jpg')}}" alt=""></div>
 
 					<!-- Tabs -->
 					<div class="listing_tabs d-flex flex-row align-items-start justify-content-between flex-wrap">
@@ -149,13 +149,13 @@
 									<div class="listing_name"><h1>Villa for sale</h1></div>
 									<div class="listing_location d-flex flex-row align-items-start justify-content-start">
 										<img src="{{asset('images/icon_1.png')}}" alt="">
-										<span>280 Doe Meadow Drive Landover, MD 20785</span>
+										<span>{{ $property->address }}</span>
 									</div>
 									<div class="listing_list">
 										<ul>
-											<li>Property ID: 643682</li>
-											<li>Posted on: September 22, 2018</li>
-											<li>Off plan</li>
+											<li>Property ID: {{ $property->propertyID }}</li>
+											<li>Posted on: {{ date_format($property->created_at, "F d, Y") }}</li>
+											<li>{{ $property->constructionStage }}</li>
 										</ul>
 									</div>
 									<div class="prop_agent d-flex flex-row align-items-center justify-content-start">
@@ -167,28 +167,28 @@
 											<li class="d-flex flex-row align-items-center justify-content-start">
 												<img src="{{asset('images/icon_2_large.png')}}" alt="">
 												<div>
-													<div>1234</div>
-													<div>sq ft</div>
+													<div>{{ $property->indoorSquare }}</div>
+													<div> m<sup>2</sup></div>
 												</div>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
 												<img src="{{asset('images/icon_3_large.png')}}" alt="">
 												<div>
-													<div>2</div>
+													<div>{{ $property->baths }}</div>
 													<div>baths</div>
 												</div>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
 												<img src="{{asset('images/icon_4_large.png')}}" alt="">
 												<div>
-													<div>5</div>
+													<div>{{ $property->beds }}</div>
 													<div>beds</div>
 												</div>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
 												<img src="{{asset('images/icon_5_large.png')}}" alt="">
 												<div>
-													<div>2</div>
+													<div>{{ $property->garages }}</div>
 													<div>garages</div>
 												</div>
 											</li>
@@ -198,7 +198,9 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="about_text">
-									<p>Nulla aliquet bibendum sem, non placerat risus venenatis at. Prae sent vulputate bibendum dictum. Cras at vehicula urna. Suspendisse fringilla lobortis justo, ut tempor leo cursus in. Nullam fermentum egestas quam nec malesuada. Donec non ligula non risus luctus mattis non non diam. Integer placerat velit at vestibulum vulputate. Donec lacinia vitae libero sed ultricies. Donec egestas dictum dolor ac sagittis. Nunc facilisis iaculis est, ut aliquet lorem. Nam imperdiet convallis imperdiet. Nam libero arcu, porttitor sed sapien nec, commodo accumsan nulla. Praesent pretium neque nec dictum venenatis. Mauris nec metus vitae massa maximus malesuada. Quisque cursus leo nec nulla dignissim, ut pulvinar diam porttitor.</p>
+									<p>
+                                        {{ $property->description }}
+                                    </p>
 								</div>
 							</div>
 							<div class="col-lg-6">

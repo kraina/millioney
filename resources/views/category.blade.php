@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_content text-center">
-						<div class="home_title">Categories</div>
+						<div class="home_title">{{ $category->title }}</div>
 					</div>
 				</div>
 			</div>
