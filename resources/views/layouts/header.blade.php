@@ -8,17 +8,17 @@
                 <ul class="d-flex flex-row align-items-center justify-content-start">
                     <!-- Phone -->
                     <li class="d-flex flex-row align-items-center justify-content-start">
-                        <div><img src="images/phone-call.svg" alt=""></div>
+                        <div><img src="{{asset('images/phone-call.svg')}}" alt=""></div>
                         <span>+546 990221 123</span>
                     </li>
                     <!-- Address -->
                     <li class="d-flex flex-row align-items-center justify-content-start">
-                        <div><img src="images/placeholder.svg" alt=""></div>
+                        <div><img src="{{asset('images/placeholder.svg')}}" alt=""></div>
                         <span>Main Str, no 23, New York</span>
                     </li>
                     <!-- Email -->
                     <li class="d-flex flex-row align-items-center justify-content-start">
-                        <div><img src="images/envelope.svg" alt=""></div>
+                        <div><img src="{{asset('images/envelope.svg')}}" alt=""></div>
                         <span>hosting@contact.com</span>
                     </li>
                 </ul>

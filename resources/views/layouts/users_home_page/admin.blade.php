@@ -150,9 +150,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     @can('manage-users')
-                    <a class="dropdown-item" href="{{ route('admin.users.index') }}" >
-                        {{ __('Users Management') }}
-                    </a>
+                        <a class="dropdown-item" href="{{ route('admin.index') }}" >
+                            {{ __('Users Management') }}
+                        </a>
                     @endcan
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();

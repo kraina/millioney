@@ -23,7 +23,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index')->with('users', $users);
+        //return view('admin.users.index')->with('users', $users);
+        return view('admin.index')->with('users', $users);
+
     }
 
     /**
@@ -66,11 +68,21 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
+        /*
         if(Gate::denies('edit-users')){
             return redirect(route('admin.users.index'));
         }
         $roles = Role::all();
         return view('admin.users.edit')->with([
+            'user'=>$user,
+            'roles'=>$roles
+        ]);
+        */
+        if(Gate::denies('edit-users')){
+            return redirect(route('admin.index'));
+        }
+        $roles = Role::all();
+        return view('admin.index')->with([
             'user'=>$user,
             'roles'=>$roles
         ]);
@@ -89,11 +101,13 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         if($user->save()){
-            $request->session()->flash('success', $user->name .'has been updated' );
+            $request->session()->flash('success', $user->name .' has been updated' );
         }else{
             $request->session()->flash('error', 'There was an error updating the user '. $user->name );
         }
-        return redirect()->route('admin.users.index');
+        //return redirect()->route('admin.users.index');
+        return redirect()->route('admin.index');
+
     }
 
     /**
@@ -105,10 +119,14 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         if(Gate::denies('delete-users')){
-            return redirect(route('admin.users.index'));
+           // return redirect(route('admin.users.index'));
+            return redirect()->route('admin.index');
+
         }
         $user->roles()->detach();
         $user->delete();
-        return redirect()->route('admin.users.index');
+        //return redirect()->route('admin.users.index');
+        return redirect()->route('admin.index');
+
     }
 }

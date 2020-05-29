@@ -2,17 +2,17 @@
 @section('title', 'Listings')
 
 @section('style')
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/listings.css">
-<link rel="stylesheet" type="text/css" href="styles/listings_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.3.4/owl.carousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.3.4/owl.theme.default.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.3.4/animate.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/listings.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/listings_responsive.css')}}">
 @endsection
 
 @section('script')
-<script src="plugins/OwlCarousel2-2.3.4/owl.carousel.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="js/listings.js"></script>
+<script src="{{asset('plugins/OwlCarousel2-2.3.4/owl.carousel.js')}}"></script>
+<script src="{{asset('plugins/Isotope/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('js/listings.js')}}"></script>
 @endsection
 
 @section("content")
@@ -20,7 +20,7 @@
 	<!-- Home -->
 
 	<div class="home">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/listings.jpg" data-speed="0.8"></div>
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{asset('images/listings.jpg')}}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -61,7 +61,8 @@
 		</div>
 	</div>
 
-	<!-- Listings -->
+
+                        <!-- Listings -->
 
 	<div class="listings">
 		<div class="container">
@@ -100,13 +101,62 @@
 
 					<!-- Listings Container -->
 					<div class="listings_container">
+                    @foreach($properties as $property)
+
+
+                        <!-- Listing -->
+                            <div class="listing_box house sale">
+                                <div class="listing">
+                                    <div class="listing_image">
+                                        <div class="listing_image_container">
+                                            <img src="{{asset('images/property'.$property->propertyID.'_1.jpg')}}" alt="">
+                                        </div>
+                                        <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
+                                            <div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
+                                            <div class="tag tag_sale"><a href="{{route('listings')}}">for sale</a></div>
+                                        </div>
+                                        <div class="tag_price listing_price">$ {{ number_format($property->price, 0, ',', ' ') }}</div>
+                                    </div>
+                                    <div class="listing_content">
+                                        <div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
+                                            <img src="{{asset('images/icon_1.png')}}" alt="">
+                                            <a href="{{route('property', $property->slug)}}">{{ $property->address }}</a>
+                                        </div>
+                                        <div class="listing_info">
+                                            <ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                                <li class="property_area d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="{{asset('images/icon_2.png')}}" alt="">
+                                                    <span>{{ $property->indoorSquare }} m<sup>2</sup></span>
+                                                </li>
+                                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="{{asset('images/icon_3.png')}}" alt="">
+                                                    <span>{{ $property->baths }}</span>
+                                                </li>
+                                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="{{asset('images/icon_4.png')}}" alt="">
+                                                    <span>{{ $property->beds }}</span>
+                                                </li>
+                                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="{{asset('images/icon_5.png')}}" alt="">
+                                                    <span>{{ $property->garages }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    @endforeach
+
+
+
 
 						<!-- Listing -->
 						<div class="listing_box house sale">
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_1.jpg" alt="">
+										<img src="{{asset('images/listing_1.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -116,25 +166,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>2500 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -148,7 +198,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_2.jpg" alt="">
+										<img src="{{asset('images/listing_2.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -158,25 +208,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">4812 Haul Road Saint Paul, MN 55102</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>1234 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -190,7 +240,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_3.jpg" alt="">
+										<img src="{{asset('images/listing_3.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -200,25 +250,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">4067 Wolf Pen Road Mountain View, CA 94041</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>2000 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -232,7 +282,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_4.jpg" alt="">
+										<img src="{{asset('images/listing_4.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -242,25 +292,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>1750 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -274,7 +324,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_5.jpg" alt="">
+										<img src="{{asset('images/listing_5.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -284,25 +334,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>750 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -316,7 +366,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_6.jpg" alt="">
+										<img src="{{asset('images/listing_6.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -326,25 +376,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>2780 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -358,7 +408,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_7.jpg" alt="">
+										<img src="{{asset('images/listing_7.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -368,25 +418,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>1325 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -400,7 +450,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_8.jpg" alt="">
+										<img src="{{asset('images/listing_8.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -410,25 +460,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>950 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>
@@ -442,7 +492,7 @@
 							<div class="listing">
 								<div class="listing_image">
 									<div class="listing_image_container">
-										<img src="images/listing_9.jpg" alt="">
+										<img src="{{asset('images/listing_9.jpg')}}" alt="">
 									</div>
 									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 										<div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
@@ -452,25 +502,25 @@
 								</div>
 								<div class="listing_content">
 									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{asset('images/icon_1.png')}}" alt="">
 										<a href="{{route('single')}}">280 Doe Meadow Drive Landover, MD 20785</a>
 									</div>
 									<div class="listing_info">
 										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
 											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
+												<img src="{{asset('images/icon_2.png')}}" alt="">
 												<span>690 sq ft</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
+												<img src="{{asset('images/icon_3.png')}}" alt="">
 												<span>2</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
+												<img src="{{asset('images/icon_4.png')}}" alt="">
 												<span>5</span>
 											</li>
 											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
+												<img src="{{asset('images/icon_5.png')}}" alt="">
 												<span>2</span>
 											</li>
 										</ul>

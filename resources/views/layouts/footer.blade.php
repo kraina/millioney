@@ -33,17 +33,17 @@
                                 <ul>
                                     <!-- Phone -->
                                     <li class="d-flex flex-row align-items-center justify-content-start">
-                                        <div><img src="images/phone-call.svg" alt=""></div>
+                                        <div><img src="{{asset('images/phone-call.svg')}}" alt=""></div>
                                         <span>+546 990221 123</span>
                                     </li>
                                     <!-- Address -->
                                     <li class="d-flex flex-row align-items-center justify-content-start">
-                                        <div><img src="images/placeholder.svg" alt=""></div>
+                                        <div><img src="{{asset('images/placeholder.svg')}}" alt=""></div>
                                         <span>Main Str, no 23, New York</span>
                                     </li>
                                     <!-- Email -->
                                     <li class="d-flex flex-row align-items-center justify-content-start">
-                                        <div><img src="images/envelope.svg" alt=""></div>
+                                        <div><img src="{{asset('images/envelope.svg')}}" alt=""></div>
                                         <span>hosting@contact.com</span>
                                     </li>
                                 </ul>
@@ -85,31 +85,31 @@
                         <div class="listing_small">
                             <div class="listing_small_image">
                                 <div>
-                                    <img src="images/listing_1.jpg" alt="">
+                                    <img src="{{asset('images/listing_1.jpg')}}" alt="">
                                 </div>
                                 <div class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                    <div class="listing_small_tag tag_house"><a href="listings.blade.php">house</a></div>
-                                    <div class="listing_small_tag tag_sale"><a href="listings.blade.php">for sale</a></div>
+                                    <div class="listing_small_tag tag_house"><a href="{{ route('listings') }}">house</a></div>
+                                    <div class="listing_small_tag tag_sale"><a href="{{ route('listings') }}">for sale</a></div>
                                 </div>
                                 <div class="listing_small_price">$ 562 346</div>
                             </div>
                             <div class="listing_small_content">
                                 <div class="listing_small_location d-flex flex-row align-items-start justify-content-start">
-                                    <img src="images/icon_1.png" alt="">
-                                    <a href="single.blade.php">280 Doe Meadow Drive Landover, MD 20785</a>
+                                    <img src="{{asset('images/icon_1.png')}}" alt="">
+                                    <a href="{{ route("single") }}">280 Doe Meadow Drive Landover, MD 20785</a>
                                 </div>
                                 <div class="listing_small_info">
                                     <ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
                                         <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <img src="images/icon_3.png" alt="">
+                                            <img src="{{asset('images/icon_3.png')}}" alt="">
                                             <span>2</span>
                                         </li>
                                         <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <img src="images/icon_4.png" alt="">
+                                            <img src="{{asset('images/icon_4.png')}}" alt="">
                                             <span>5</span>
                                         </li>
                                         <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <img src="images/icon_5.png" alt="">
+                                            <img src="{{asset('images/icon_5.png')}}" alt="">
                                             <span>2</span>
                                         </li>
                                     </ul>
