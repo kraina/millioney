@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 @section('title', 'Create property')
 
 @section('style')
@@ -55,10 +55,6 @@
     <div class="form-group" >
         {{ Form::label('city', 'City') }}
         {{ Form::text('city', '', ['class' => 'form-control', 'placeholder' => 'City']) }}
-    </div>
-    <div class="form-group" >
-        {{ Form::label('postcode', 'Postcode') }}
-        {{ Form::text('postcode', '', ['class' => 'form-control', 'placeholder' => 'Postcode']) }}
     </div>
     <div class="form-group" >
         {{ Form::label('openHouse', 'Open House') }}
