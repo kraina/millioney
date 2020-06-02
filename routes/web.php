@@ -13,19 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',                     'PagesController@index'     )->name('index');
-Route::get('/blog',                 'PagesController@blog'      )->name('blog');
-Route::get('/contact',              'PagesController@contact'   )->name('contact');
-Route::get('/about',                'PagesController@about'     )->name('about');
-Route::get('/listings',             'PagesController@properties'  )->name('listings');
-Route::get('/single',               'PagesController@single'    )->name('single');
-Route::get('/property/{property}',  'PagesController@property'  )->name('property');
-Route::get('/categories',           'PagesController@categories')->name('categories');
-Route::get('/category/{category}',  'PagesController@category'  )->name('category');
+Route::get('/',                     'HomeController@index'     )->name('index');
+Route::get('/blog',                 'HomeController@blog'      )->name('blog');
+Route::get('/contact',              'HomeController@contact'   )->name('contact');
+Route::get('/about',                'HomeController@about'     )->name('about');
+Route::get('/listings',             'HomeController@properties')->name('listings');
+Route::get('/single',               'HomeController@single'    )->name('single');
+Route::get('/property/{property}',  'HomeController@property'  )->name('property');
+Route::get('/categories',           'HomeController@categories')->name('categories');
+Route::get('/category/{category}',  'HomeController@category'  )->name('category');
 
+//Auth::routes();
+/*
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'home',
+    'as' => 'home.',
+
+],
+    function () {
+        Route::get('/home',         'HomeController@home'      )->name('home');
+        Route::get('/properties',   'HomeController@properties')->name('listings');
+    });
+*/
 Auth::routes();
 
-Route::get('/home',     'HomeController@index'      )->name('home');
+Route::get('/home',     'HomeController@home'      )->name('home')->middleware('auth');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
@@ -36,3 +49,11 @@ Route::namespace('Admin')->prefix('admin.super')->name('admin.super.')->middlewa
 });
 Route::resource('properties', 'PropertiesController');
 
+/*
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+
+*/

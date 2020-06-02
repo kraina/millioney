@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +51,6 @@ class PropertiesController extends Controller
         $property->user_id              = Auth::user()->id;
         $property->categories           = $request->input('categories');
         $property->tags                 = $request->input('tags');
-        $property->propertyID           = 0;
         $property->slug                 = $request->input('alias');
         $property->propertyType         = $request->input('propertyType');
         $property->NumRooms             = $request->input('NumRooms');
@@ -56,7 +59,6 @@ class PropertiesController extends Controller
         $property->country              = $request->input('country');
         $property->state                = $request->input('state');
         $property->city                 = $request->input('city');
-        $property->postcode             = $request->input('postcode');
         $property->openHouse            = $request->input('openHouse');
         $property->features             = $request->input('features');
         $property->image                = $request->input('image');
@@ -75,7 +77,6 @@ class PropertiesController extends Controller
         $property->floors               = $request->input('floors');
         $property->completedIn          = $request->input('completedIn');
         $property->created_at           = now();
-
         $property->save();
         return redirect('/properties')->with('success', "Property created");
     }
@@ -89,7 +90,7 @@ class PropertiesController extends Controller
     public function show($slug)
     {
         $property = Property::where('slug', $slug)->first();
-        return view('properties.show', compact('property'));
+        return view('properties.show', compact('property' ));
     }
 
     /**
