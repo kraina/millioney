@@ -13,13 +13,14 @@ class CreatePropertiesTable extends Migration
      */
     public function up()
     {
+
         Schema::create('properties', function (Blueprint $table) {
+
             $table->id();
             $table->string('title');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->text('categories');
             $table->text('tags');
-            $table->string('slug');
             $table->string('propertyType');
             $table->integer('NumRooms');
             $table->string('address');
@@ -46,6 +47,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('floors')->nullable();
             $table->integer('completedIn')->nullable();
             $table->timestamps();
+
         });
     }
 

@@ -29,10 +29,6 @@
         {{ Form::text('tags', '', ['class' => 'form-control', 'placeholder' => 'Tags']) }}
     </div>
     <div class="form-group" >
-        {{ Form::label('alias', 'Alias') }}
-        {{ Form::text('alias', '', ['class' => 'form-control', 'placeholder' => 'Alias']) }}
-    </div>
-    <div class="form-group" >
         {{ Form::label('propertyType', 'Property Type') }}
         {{ Form::text('propertyType', '', ['class' => 'form-control', 'placeholder' => 'Property Type']) }}
     </div>

@@ -17,9 +17,7 @@
     @include('layouts.header')
     @include('partials.alerts')
     @include('partials.messages')
-
     @yield('content')
-
     @include("layouts.footer")
 
 </div> <!--./super_container -->

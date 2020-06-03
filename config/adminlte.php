@@ -242,7 +242,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'create_property',
-                    'url'  => '/properties/create',
+                    'url'  => 'properties/create',
                 ],
                 [
                     'text'    => 'level_one',

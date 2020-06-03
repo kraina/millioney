@@ -9,7 +9,7 @@ class PropertiesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['show']]);
     }
     /**
      * Display a listing of the resource.
@@ -18,7 +18,10 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        $properties = Property::orderBy('created_at', 'desc')->get();
+        $properties = Property::where(['user_id'=>Auth::user()->id])
+            ->orderBy('created_at', 'desc')
+            ->get();
+        //$properties = Property::orderBy('created_at', 'desc')->get();
         return view('properties.index', compact('properties'));
     }
 
@@ -51,7 +54,6 @@ class PropertiesController extends Controller
         $property->user_id              = Auth::user()->id;
         $property->categories           = $request->input('categories');
         $property->tags                 = $request->input('tags');
-        $property->slug                 = $request->input('alias');
         $property->propertyType         = $request->input('propertyType');
         $property->NumRooms             = $request->input('NumRooms');
         $property->address              = $request->input('address');
@@ -87,9 +89,10 @@ class PropertiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $property = Property::where('slug', $slug)->first();
+        $property = Property::where('id', $id)->first();
+
         return view('properties.show', compact('property' ));
     }
 

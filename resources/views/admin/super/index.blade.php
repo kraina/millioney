@@ -36,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home') }}" >
+                    <a class="dropdown-item" href="{{ route('home.index') }}" >
                         {{ __('Home') }}
                     </a>
                     @can('manage-users')
