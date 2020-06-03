@@ -11,9 +11,11 @@ class PagesController extends Controller
     public function index(){
             return view('index');
     }
+    /*
     public function listings(){
         return view('listings');
     }
+    */
     public function categories(){
         $categories = Category::get();
         return view('categories', compact('categories'));
@@ -22,13 +24,13 @@ class PagesController extends Controller
         $slug = Category::where('slug', $slug)->first();
         return view('category', ['category' =>$slug]);
     }
-    public function properties(){
+    public function listings(){
         $properties = Property::get();
         return view('listings', compact('properties'));
     }
-    public function property($slug = null){
-        $slug = Property::where('slug', $slug)->first();
-        return view('property', ['property' =>$slug]);
+    public function property($id){
+        $id = Property::where('id', $id)->first();
+        return view('property', ['property' =>$id]);
     }
     public function single(){
         return view('single');
