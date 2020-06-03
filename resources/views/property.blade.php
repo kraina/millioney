@@ -63,7 +63,7 @@
 				<div class="col">
 
 					<!-- Image -->
-					<div class="listing_image"><img src="{{asset('images/property'.$property->propertyID.'_0.jpg')}}" alt=""></div>
+					<div class="listing_image"><img src="{{asset('images/property'.$property->id.'_0.jpg')}}" alt=""></div>
 
 					<!-- Tabs -->
 					<div class="listing_tabs d-flex flex-row align-items-start justify-content-between flex-wrap">
@@ -153,7 +153,7 @@
 									</div>
 									<div class="listing_list">
 										<ul>
-											<li>Property ID: {{ $property->propertyID }}</li>
+											<li>Property ID: </li>
 											<li>Posted on: {{ date_format($property->created_at, "F d, Y") }}</li>
 											<li>{{ $property->constructionStage }}</li>
 										</ul>
