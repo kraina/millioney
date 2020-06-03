@@ -53,10 +53,6 @@
         {{ Form::text('city', '', ['class' => 'form-control', 'placeholder' => 'City']) }}
     </div>
     <div class="form-group" >
-        {{ Form::label('openHouse', 'Open House') }}
-        {{ Form::text('openHouse', '', ['class' => 'form-control', 'placeholder' => 'Open House']) }}
-    </div>
-    <div class="form-group" >
         {{ Form::label('features', 'Features') }}
         {{ Form::text('features', '', ['class' => 'form-control', 'placeholder' => 'Features']) }}
     </div>
