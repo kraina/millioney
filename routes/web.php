@@ -32,16 +32,7 @@ Route::group([
 ],
     function () {
         Route::resource('/', 'HomeController' );
-    });
-
-Route::group([
-    'middleware' => ['auth'],
-    'prefix' => 'properties',
-    'as' => 'properties.',
-
-],
-    function () {
-        Route::resource('/', 'PropertiesController');
+        Route::resource('/properties', 'PropertiesController');
     });
 
 
@@ -55,10 +46,24 @@ Route::namespace('Admin')->prefix('admin.super')->name('admin.super.')->middlewa
 
 //Route::resource('properties', 'PropertiesController');
 /*
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'properties',
+    'as' => 'properties.',
+
+],
+    function () {
+
+        Route::resource('/', 'PropertiesController');
+
+    });
+*/
+/*
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
 */
 
 //Route::get('/home',     'HomeController@index'      )->name('home')->middleware('auth');
+
 

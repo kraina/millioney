@@ -9,7 +9,7 @@ class PropertiesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -61,7 +61,6 @@ class PropertiesController extends Controller
         $property->country              = $request->input('country');
         $property->state                = $request->input('state');
         $property->city                 = $request->input('city');
-        $property->openHouse            = $request->input('openHouse');
         $property->features             = $request->input('features');
         $property->image                = $request->input('image');
         $property->videos               = $request->input('videos');
@@ -80,7 +79,7 @@ class PropertiesController extends Controller
         $property->completedIn          = $request->input('completedIn');
         $property->created_at           = now();
         $property->save();
-        return redirect('/properties')->with('success', "Property created");
+        return redirect('/home/properties')->with('success', "Property created");
     }
 
     /**
