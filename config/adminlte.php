@@ -237,13 +237,18 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'my_property',
+            'text'    => 'my_properties',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
+                [
+                    'text' => 'my_properties_list',
+                    'url'  => 'home/properties/',
+                ],
                 [
                     'text' => 'create_property',
                     'url'  => 'home/properties/create',
                 ],
+
                 [
                     'text'    => 'level_one',
                     'url'     => '#',

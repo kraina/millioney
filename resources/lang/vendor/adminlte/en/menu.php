@@ -16,6 +16,7 @@ return [
     'important'                     => 'Important',
     'warning'                       => 'Warning',
     'information'                   => 'Information',
-    'my_property'                   => 'My Property',
+    'my_properties'                  => 'My Properties',
     'create_property'               => 'Create Property',
+    'my_properties_list'            => 'List',
 ];
