@@ -63,7 +63,14 @@
 				<div class="col">
 
 					<!-- Image -->
-					<div class="listing_image"><img src="{{asset('images/property'.$property->image )}}" alt=""></div>
+					<div class="listing_image">
+                        <img src="{{ asset('images/'.$property->properties_photo_cover()->name) }}" alt="">
+                        <!--
+                        @\foreach($property->properties_photo()->get() as $propertyPhoto )
+                        <img src="{\{ asset('images/'.$propertyPhoto->name) }}" alt="">
+                        @\endforeach
+                        -->
+                    </div>
 
 					<!-- Tabs -->
 					<div class="listing_tabs d-flex flex-row align-items-start justify-content-between flex-wrap">

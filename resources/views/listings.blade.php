@@ -103,13 +103,20 @@
 					<div class="listings_container">
                     @foreach($properties as $property)
 
-
                         <!-- Listing -->
                             <div class="listing_box house sale">
                                 <div class="listing">
                                     <div class="listing_image">
                                         <div class="listing_image_container">
-                                            <img src="{{asset('images/property'.$property->id.'_1.jpg')}}" alt="">
+                                           <!-- <img src="{\{asset('images/property'.$\property->id.'_1.jpg')\}}" alt=""> -->
+                                           <!-- @\foreach($property->properties_photo()->get() as $propertyPhoto ) -->
+                                            <!-- <img src="\{\{\ asset('images/'.$propertyPhoto->first()->name) \}\}" alt=""> -->
+                                           <!-- @\break -->
+                                          <!--   @\endforeach -->
+                                            @if(!is_null($property->properties_photo_cover()))
+                                            <img src="{{asset('images/'.$property->properties_photo_cover()->name) }}" alt="">
+                                            @endif
+                                        <img src="{{asset('images/'.$property->name)}}" alt="">
                                         </div>
                                         <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                                             <div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
