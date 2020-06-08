@@ -29,7 +29,6 @@ class CreatePropertiesTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->text('features')->nullable();
-            $table->text('image')->nullable();
             $table->string('videos')->nullable();
             $table->text('nearbyAmenities')->nullable();
             $table->text('description')->nullable();

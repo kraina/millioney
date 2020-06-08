@@ -11,7 +11,7 @@
 
 @section("content")
     <h1>Create property</h1>
-    {!! Form::open(['action' => 'PropertiesController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'PropertiesController@store', 'method' => 'POST', 'files' => true]) !!}
     <div class="form-group" >
         {{ Form::label('title', 'Title') }}
         {{ Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title']) }}
@@ -55,10 +55,6 @@
     <div class="form-group" >
         {{ Form::label('features', 'Features') }}
         {{ Form::text('features', '', ['class' => 'form-control', 'placeholder' => 'Features']) }}
-    </div>
-    <div class="form-group" >
-        {{ Form::label('image', 'Image') }}
-        {{ Form::text('image', '', ['class' => 'form-control', 'placeholder' => 'Image']) }}
     </div>
     <div class="form-group" >
         {{ Form::label('videos', 'Videos') }}
@@ -119,6 +115,10 @@
     <div class="form-group" >
         {{ Form::label('description', 'Description') }}
         {{ Form::textarea('description', '', ['class' => 'form-control', 'placeholder' => 'Description']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('photo_id', 'Upload Photos') }}
+        {{ Form::file('photo_id[]', ['multiple'=>'multiple'], ['class' => 'form-control']) }}
     </div>
 
     {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}

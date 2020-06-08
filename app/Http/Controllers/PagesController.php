@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Property;
+use App\PropertiesPhoto;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -25,12 +26,12 @@ class PagesController extends Controller
         return view('category', ['category' =>$slug]);
     }
     public function listings(){
-        $properties = Property::get();
-        return view('listings', compact('properties'));
+        $properties = Property::orderBy('created_at', 'desc')->get();
+        return view('listings', ['properties'=>$properties ]);
     }
     public function property($id){
-        $id = Property::where('id', $id)->first();
-        return view('property', ['property' =>$id]);
+        $property = Property::where('id', $id)->first();
+        return view('property', ['property' =>$property]);
     }
     public function single(){
         return view('single');
