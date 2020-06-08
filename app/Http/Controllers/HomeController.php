@@ -34,7 +34,7 @@ class HomeController extends Controller
         return view('home');
     }
     public function properties(){
-        $properties = Property::get();
+        $properties = Property::orderBy('created_at', 'desc')->get();
         return view('listings', compact('properties'));
     }
 }

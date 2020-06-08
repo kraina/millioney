@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\PropertiesPhoto;
 use Auth;
 use App\Property;
 use Illuminate\Http\Request;
@@ -62,7 +63,6 @@ class PropertiesController extends Controller
         $property->state                = $request->input('state');
         $property->city                 = $request->input('city');
         $property->features             = $request->input('features');
-        $property->image                = $request->input('image');
         $property->videos               = $request->input('videos');
         $property->nearbyAmenities      = $request->input('nearbyAmenities');
         $property->price                = $request->input('price');
@@ -77,8 +77,27 @@ class PropertiesController extends Controller
         $property->floor                = $request->input('floor');
         $property->floors               = $request->input('floors');
         $property->completedIn          = $request->input('completedIn');
+
         $property->created_at           = now();
         $property->save();
+        if($request->hasFile('photo_id')){
+            $files = $request->file('photo_id');
+            foreach ($files as $file) {
+                //$propertiesPhoto = new PropertiesPhoto;
+                $name = 'property-'.time().'-'.$file->getClientOriginalName();
+                $name = str_replace(' ', '-', $name);
+                $file->move('images', $name);
+
+                $property->properties_photo()->create([
+                'name'=>$name
+                ]);
+                /*
+                $propertiesPhoto->property_id = $property->id;
+                $propertiesPhoto->name = $name;
+                $propertiesPhoto->save();
+                */
+            }
+        }
         return redirect('/home/properties')->with('success', "Property created");
     }
 
@@ -91,8 +110,9 @@ class PropertiesController extends Controller
     public function show($id)
     {
         $property = Property::where('id', $id)->first();
+        $properties_photo = PropertiesPhoto::get();
 
-        return view('properties.show', compact('property' ));
+        return view('properties.show', compact('property', 'properties_photo' ));
     }
 
     /**
