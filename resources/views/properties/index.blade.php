@@ -120,10 +120,13 @@
                                     </i>
                                     Edit
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
+                               <!-- <a class="btn btn-danger btn-sm" href="{\{ route('home.properties.destroy', $property->id ) }}" > -->
+                                   <!-- <i class="fas fa-trash">
+                                    </i> -->
+                                    {!! Form::open(['action' => ['PropertiesController@destroy', $property->id], 'method' => 'POST', 'class' => '']) !!}
+                                    {!! Form::hidden('_method', 'DELETE') !!}
+                                    {{ Form::button('<i class="fas fa-trash"></i> Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+                                    {!! Form::close() !!}
                                 </a>
                             </td>
                         </tr>
