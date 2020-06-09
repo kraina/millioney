@@ -146,6 +146,13 @@ class PropertiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $property = Property::find($id);
+        $property_photos = PropertiesPhoto::where('property_id', $id )->get();
+        foreach($property_photos as $photo_name) {
+            $photo_path = public_path() . '/images/' . $photo_name->name;
+            unlink($photo_path);
+        }
+        $property->delete();
+        return redirect('/home/properties')->with('success', "Property deleted");
     }
 }
