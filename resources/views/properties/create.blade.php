@@ -118,7 +118,7 @@
     </div>
     <div class="form-group" >
         {{ Form::label('photo_id', 'Upload Photos') }}
-        {{ Form::file('photo_id[]', ['multiple'=>'multiple'], ['class' => 'form-control']) }}
+        {{ Form::file('photo_id[]', ['multiple'=>'multiple', 'enctype' => 'multipart/form-data'], ['class' => 'form-control']) }}
     </div>
 
     {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}

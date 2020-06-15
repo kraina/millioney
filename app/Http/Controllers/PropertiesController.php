@@ -44,6 +44,44 @@ class PropertiesController extends Controller
      */
     public function store(Request $request)
     {
+        $data = request()->validate([
+            'title'             => 'required',
+            'description'       => '',
+            'categories'        => '',
+            'tags'              => '',
+            'propertyType'      => '',
+            'NumRooms'          => '',
+            'address'           => '',
+            'location'          => '',
+            'country'           => '',
+            'state'             => '',
+            'city'              => '',
+            'features'          => '',
+            'videos'            => '',
+            'nearbyAmenities'   => '',
+            'price'             => '',
+            'constructionStage' => '',
+            'legal'             => '',
+            'outdoorSquare'     => '',
+            'indoorSquare'      => '',
+            'kitchenSquare'     => '',
+            'baths'             => '',
+            'beds'              => '',
+            'garages'           => '',
+            'floor'             => '',
+            'floors'            => '',
+            'completedIn'       => ''
+        ]);
+        $event = Property::add($data);
+
+        if($request->hasFile('photo_id')){
+            $files = $request->file('photo_id');
+            //foreach ($files as $file) {
+            $property_photo_name = $event->UploadPropertyPhoto($files);
+            //}
+        }
+
+/*
         $this->validate($request, [
             'title' => 'required',
             'description' => ''
@@ -80,6 +118,8 @@ class PropertiesController extends Controller
 
         $property->created_at           = now();
         $property->save();
+*/
+        /*
         if($request->hasFile('photo_id')){
             $files = $request->file('photo_id');
             foreach ($files as $file) {
@@ -91,13 +131,17 @@ class PropertiesController extends Controller
                 $property->properties_photo()->create([
                 'name'=>$name
                 ]);
+        */
                 /*
                 $propertiesPhoto->property_id = $property->id;
                 $propertiesPhoto->name = $name;
                 $propertiesPhoto->save();
                 */
+        /*
             }
+
         }
+*/
         return redirect('/home/properties')->with('success', "Property created");
     }
 
@@ -149,7 +193,7 @@ class PropertiesController extends Controller
         $property = Property::find($id);
         $property_photos = PropertiesPhoto::where('property_id', $id )->get();
         foreach($property_photos as $photo_name) {
-            $photo_path = public_path() . '/images/' . $photo_name->name;
+            $photo_path = 'storage/properties_images/' . $photo_name->name;
             unlink($photo_path);
         }
         $property->delete();
