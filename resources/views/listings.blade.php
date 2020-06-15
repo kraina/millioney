@@ -114,9 +114,8 @@
                                            <!-- @\break -->
                                           <!--   @\endforeach -->
                                             @if(!is_null($property->properties_photo_cover()))
-                                            <img src="{{asset('images/'.$property->properties_photo_cover()->name) }}" alt="">
+                                            <img src="{{asset('storage/properties_images/'.$property->properties_photo_cover()->name) }}" alt="">
                                             @endif
-                                        <img src="{{asset('images/'.$property->name)}}" alt="">
                                         </div>
                                         <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                                             <div class="tag tag_house"><a href="{{route('listings')}}">house</a></div>
