@@ -11,6 +11,7 @@
 @section('adminlte_css')
     @stack('css')
     @yield('css')
+    @yield('style')
 @stop
 
 @section('classes_body', $layoutHelper->makeBodyClasses())
@@ -68,4 +69,5 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     @stack('js')
     @yield('js')
+    @yield('script')
 @stop

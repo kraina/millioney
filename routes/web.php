@@ -24,15 +24,23 @@ Route::get('/categories',           'PagesController@categories')->name('categor
 Route::get('/category/{category}',  'PagesController@category'  )->name('category');
 
 Auth::routes();
-
+Route::get('properties/img-dropzone-fetch/{id}','PropertiesController@imgDropzoneFetch')->name('home.properties.img-dropzone-fetch');
+Route::get('properties/{id?}/img-dropzone-delete','PropertiesController@imgDropzoneDelete')->name('home.properties.{id?}.img-dropzone-delete');
+Route::post('properties/{id}/img-dropzone-upload/','PropertiesController@imgDropzoneUpload')->name('home.properties.{id}.img-dropzone-upload');
 Route::group([
     'middleware' => ['auth'],
     'prefix' => 'home',
     'as' => 'home.',
 ],
     function () {
+
         Route::resource('/', 'HomeController' );
-        Route::resource('/properties', 'PropertiesController');
+        Route::resource('/properties', 'PropertiesController', ['names' => [
+            'img-dropzone-fetch' => 'home.properties.img-dropzone-fetch',
+            'img-dropzone-delete' => 'home.properties.{id?}.img-dropzone-delete',
+            'img-dropzone-upload' => 'home.properties.{id}.img-dropzone-upload',
+            ]]);
+
     });
 
 
@@ -66,4 +74,5 @@ Route::get('/home', function() {
 
 //Route::get('/home',     'HomeController@index'      )->name('home')->middleware('auth');
 
+/*
 

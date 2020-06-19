@@ -76,9 +76,7 @@ class PropertiesController extends Controller
 
         if($request->hasFile('photo_id')){
             $files = $request->file('photo_id');
-            //foreach ($files as $file) {
             $property_photo_name = $event->UploadPropertyPhoto($files);
-            //}
         }
 
 /*
@@ -154,9 +152,12 @@ class PropertiesController extends Controller
     public function show($id)
     {
         $property = Property::where('id', $id)->first();
+        if(Auth::user()->id === $property->user_id) {
         $properties_photo = PropertiesPhoto::get();
-
         return view('properties.show', compact('property', 'properties_photo' ));
+        } else {
+            return back()->with('message','access forbidden');
+        }
     }
 
     /**
@@ -167,7 +168,12 @@ class PropertiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $property = Property::where('id', $id)->first();
+        if(Auth::user()->id === $property->user_id) {
+        return view('properties.edit', compact('property'));
+        } else {
+            return back()->with('message','access forbidden');
+        }
     }
 
     /**
@@ -180,6 +186,55 @@ class PropertiesController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+    function imgDropzoneUpload(Request $request, $id)
+    {
+        $image = $request->file('file');
+        $property = Property::where('id', $id)->first();
+        if(Auth::user()->id === $property->user_id) {
+        $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME). '_' . time(). '.'.$image->extension();
+        $image->storeAs('public/properties_images', $filename);
+        $property->properties_photo()->create([
+            'name'=>$filename,
+        ]);
+        return response()->json(['success' => $filename]);
+        } else {
+            return back()->with('message','access forbidden');
+        }
+    }
+    public function imgDropzoneFetch($id)
+    {
+        //$images = \File::allFiles('storage/properties_images');
+        $property = Property::where('id', $id)->first();
+        if(Auth::user()->id === $property->user_id) {
+        $properties_photo = $property->properties_photo()->get();
+        $output = '<div class="row">';
+        foreach($properties_photo as $image)
+        {
+            $output .= '
+      <div class="col-md-2" style="margin-bottom:16px;" align="center">
+                <img src="'.asset('storage/properties_images/' . $image->name).'" class="img-thumbnail" style="height:175px;" />
+                <button type="button" class="btn btn-link remove_image" id="'.$image->name.'">Remove</button>
+            </div>
+      ';
+        }
+        $output .= '</div>';
+        echo $output;
+        } else {
+            return back()->with('message','access forbidden');
+        }
+    }
+    function imgDropzoneDelete(Request $request, $id = null)
+    {
+        $property = Property::where('id', $id)->first();
+        if(Auth::user()->id === $property->user_id) {
+        $name = $request->get('name');
+        PropertiesPhoto::where('name', $name )->delete();
+        $photo_path = 'storage/properties_images/' . $name;
+        unlink($photo_path);
+        } else {
+            return back()->with('message','access forbidden');
+        }
     }
 
     /**
