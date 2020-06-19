@@ -11,7 +11,7 @@
 
 @section("content")
     <h1>Create property</h1>
-    {!! Form::open(['action' => 'PropertiesController@store', 'method' => 'POST', 'files' => true]) !!}
+    {!! Form::open(['action' => 'PropertiesController@store', 'method' => 'POST', 'files' => true, 'id' => 'dropzone']) !!}
     <div class="form-group" >
         {{ Form::label('title', 'Title') }}
         {{ Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title']) }}
@@ -120,7 +120,6 @@
         {{ Form::label('photo_id', 'Upload Photos') }}
         {{ Form::file('photo_id[]', ['multiple'=>'multiple', 'enctype' => 'multipart/form-data'], ['class' => 'form-control']) }}
     </div>
-
     {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
     {!! Form::close() !!}
 
