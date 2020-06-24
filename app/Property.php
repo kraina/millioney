@@ -2,7 +2,10 @@
 
 namespace App;
 //use App\User;
+use App\Models\Filters\Properties\PropertySearch;
 use App\PropertiesPhoto;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Auth;
 
@@ -75,5 +78,10 @@ class Property extends Model
     public function properties_photo_cover()
     {
         return $this->properties_photo()->first();
+    }
+    public function getPropertiesBySearch(Request $request):Builder
+    {
+        $builder = (new PropertySearch())->apply($request);
+        return $builder;
     }
 }

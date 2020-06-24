@@ -32,7 +32,7 @@
 		</div>
 	</div>
 
-	<!-- Search -->
+	<!-- PropertyType -->
 
 	<div class="search">
         @foreach($categories as $category)

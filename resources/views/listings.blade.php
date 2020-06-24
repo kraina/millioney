@@ -32,7 +32,7 @@
 		</div>
 	</div>
 
-	<!-- Search -->
+	<!-- PropertyType -->
 
 	<div class="search">
 		<div class="container">
@@ -43,9 +43,9 @@
 							<form action="#" class="search_form" id="search_form">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<div class="search_inputs d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-										<input type="text" class="search_input" placeholder="Property type" required="required">
-										<input type="text" class="search_input" placeholder="No rooms" required="required">
-										<input type="text" class="search_input" placeholder="Location" required="required">
+										<input type="text" name="property_type" class="search_input" placeholder="Property type" required="required">
+										<input type="text" name="rooms" class="search_input" placeholder="No rooms" required="required">
+										<input type="text" name="location" class="search_input" placeholder="Location" required="required">
 									</div>
 									<button class="search_button">submit listing</button>
 								</div>

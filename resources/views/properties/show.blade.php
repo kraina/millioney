@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
-	<!-- Search -->
+	<!-- PropertyType -->
 
 	<div class="search">
         <div style="margin-top: -4%; margin-left: 50%;"><h1>{{ $property->title }}</h1></div>

@@ -7,7 +7,7 @@ use App\Property;
 use App\PropertiesPhoto;
 use Illuminate\Http\Request;
 
-class PagesController extends Controller
+class MenuPagesController extends Controller
 {
     public function index(){
             return view('index');
@@ -25,8 +25,9 @@ class PagesController extends Controller
         $slug = Category::where('slug', $slug)->first();
         return view('category', ['category' =>$slug]);
     }
-    public function listings(){
-        $properties = Property::orderBy('created_at', 'desc')->get();
+    public function listings(Request $request, Property $property){
+        //$properties = Property::orderBy('created_at', 'desc')->get();
+        $properties = $property->getPropertiesBySearch($request)->get();
         return view('listings', ['properties'=>$properties ]);
     }
     public function property($id){
