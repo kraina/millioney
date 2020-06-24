@@ -63,18 +63,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($properties as $property)
+                        @foreach($pages as $page)
                         <tr>
                             <td>
                                 #
                             </td>
                             <td>
                                 <a>
-                                    {{ $property->title }}
+                                    {{ $page->title }}
                                 </a>
                                 <br/>
                                 <small>
-                                    Updated at {{ date_format($property->updated_at, 'd M Y H:i:s') }}
+                                    Updated at {{ date_format($page->updated_at, 'd M Y H:i:s') }}
                                 </small>
                             </td>
                             <!--
@@ -108,12 +108,12 @@
                                 <span class="badge badge-success">Success</span>
                             </td>
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="{{ route('home.properties.show', $property->id ) }}" target="_blank" rel="nofollow noopener noreferrer" >
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.super.pages.show', $page->id ) }}" target="_blank" rel="nofollow noopener noreferrer" >
                                     <i class="fas fa-folder">
                                     </i>
                                     View
                                 </a>
-                                <a class="btn btn-info btn-sm" href="{{ route('home.properties.edit', $property->id ) }}">
+                                <a class="btn btn-info btn-sm" href="{{ route('admin.super.pages.edit', $page->id ) }}">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
@@ -121,7 +121,7 @@
                                <!-- <a class="btn btn-danger btn-sm" href="{\{ route('home.properties.destroy', $property->id ) }}" > -->
                                    <!-- <i class="fas fa-trash">
                                     </i> -->
-                                    {!! Form::open(['action' => ['PropertiesController@destroy', $property->id], 'method' => 'POST', 'class' => '']) !!}
+                                    {!! Form::open(['action' => ['Admin\PageController@destroy', $page->id], 'method' => 'POST', 'class' => '']) !!}
                                     {!! Form::hidden('_method', 'DELETE') !!}
                                     {{ Form::button('<i class="fas fa-trash"></i> Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
                                     {!! Form::close() !!}

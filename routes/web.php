@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',                     'PagesController@index'     )->name('index');
-Route::get('/blog',                 'PagesController@blog'      )->name('blog');
-Route::get('/contact',              'PagesController@contact'   )->name('contact');
-Route::get('/about',                'PagesController@about'     )->name('about');
-Route::get('/listings',             'PagesController@listings'  )->name('listings');
-Route::get('/single',               'PagesController@single'    )->name('single');
-Route::get('/property/{property}',  'PagesController@property'  )->name('property');
-Route::get('/categories',           'PagesController@categories')->name('categories');
-Route::get('/category/{category}',  'PagesController@category'  )->name('category');
+Route::get('/',                     'MenuPagesController@index'     )->name('index');
+Route::get('/blog',                 'MenuPagesController@blog'      )->name('blog');
+Route::get('/contact',              'MenuPagesController@contact'   )->name('contact');
+Route::get('/about',                'MenuPagesController@about'     )->name('about');
+Route::get('/listings',             'MenuPagesController@listings'  )->name('listings');
+Route::get('/single',               'MenuPagesController@single'    )->name('single');
+Route::get('/property/{property}',  'MenuPagesController@property'  )->name('property');
+Route::get('/categories',           'MenuPagesController@categories')->name('categories');
+Route::get('/category/{category}',  'MenuPagesController@category'  )->name('category');
 
 Auth::routes();
 Route::get('properties/img-dropzone-fetch/{id}','PropertiesController@imgDropzoneFetch')->name('home.properties.img-dropzone-fetch');
@@ -49,7 +49,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
 Route::namespace('Admin')->prefix('admin.super')->name('admin.super.')->middleware('can:super-admin')->group(function(){
+    Route::resource('/pages', 'PageController');
     Route::resource('/', 'SuperAdminController', ['except' => ['show', 'create', 'store']]);
+
 });
 
 //Route::resource('properties', 'PropertiesController');
@@ -74,5 +76,5 @@ Route::get('/home', function() {
 
 //Route::get('/home',     'HomeController@index'      )->name('home')->middleware('auth');
 
-/*
+
 

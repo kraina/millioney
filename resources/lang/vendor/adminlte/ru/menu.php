@@ -16,4 +16,9 @@ return [
     'important'                     => 'Важно',
     'warning'                       => 'Внимание',
     'information'                   => 'Информация',
+    'my_properties'                 => 'Мои Объекты',
+    'create_property'               => 'Создать Объект',
+    'my_properties_list'            => 'Список',
+    'ADMIN_MENU'                    => 'МЕНЮ АДМИНА',
+    'site_pages'                    => 'Страницы Сайта',
 ];

@@ -9,7 +9,7 @@
 @section('script')
 
     <script type="text/javascript">
-
+/*
         Dropzone.options.dropzoneForm = {
             autoProcessQueue : false,
             acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
@@ -41,7 +41,7 @@
         {
 
             $.ajax({
-               url:"{{ route('home.properties.img-dropzone-fetch', $property->id) }}",
+               url:"{\{ route('home.properties.img-dropzone-fetch', $property->id) }}",
                 success:function(data)
                 {
                     $('#uploaded_image').html(data);
@@ -53,14 +53,14 @@
         $(document).on('click', '.remove_image', function(){
             var name = $(this).attr('id');
             $.ajax({
-                url:"{{ route('home.properties.{id?}.img-dropzone-delete', $property->id) }}",
+                url:"{\{ route('home.properties.{id?}.img-dropzone-delete', $property->id) }}",
                 data:{name : name},
                 success:function(data){
                     load_images();
                 }
             })
         });
-
+*/
     </script>
 @endsection
 
@@ -70,9 +70,11 @@
             <h3 class="panel-title">Select Image</h3>
         </div>
         <div class="panel-body">
-            <form id="dropzoneForm" class="dropzone" action="{{ route('home.properties.{id}.img-dropzone-upload', $property->id) }}">
-                @csrf
+            <!--
+            <form id="dropzoneForm" class="dropzone" action="{\{ route('home.properties.{id}.img-dropzone-upload', $property->id) }}">
+                @\csrf
             </form>
+            -->
             <div align="center">
                 <button type="button" class="btn btn-info" id="submit-all">Upload</button>
             </div>

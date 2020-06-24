@@ -140,7 +140,7 @@
 				<div class="col-lg-3">
 					<div class="sidebar">
 
-						<!-- Search -->
+						<!-- PropertyType -->
 						<div class="sidebar_search">
 							<form action="#" class="sidebar_search_form">
 								<input type="text" class="sidebar_search_input" required="required">

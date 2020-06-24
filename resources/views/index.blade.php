@@ -83,7 +83,7 @@
 		</div>
 	</div>
 
-	<!-- Search -->
+	<!-- PropertyType -->
 
 	<div class="search">
 		<div class="container">
