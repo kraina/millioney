@@ -286,7 +286,7 @@ $.fn.dataTableExt.oApi.fnColReorder = function ( oSettings, iFrom, iTo, drop, in
 		oSettings.oApi._fnColumnOptions( oSettings, i, {} );
 	}
 
-	/* Search columns */
+	/* PropertyType columns */
 	fnArraySwitch( oSettings.aoPreSearchCols, iFrom, iTo );
 
 	/* Array array - internal data anodes cache */

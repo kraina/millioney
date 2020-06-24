@@ -19,4 +19,7 @@ return [
     'my_properties'                  => 'My Properties',
     'create_property'               => 'Create Property',
     'my_properties_list'            => 'List',
+    'ADMIN_MENU'                    => "ADMIN MENU",
+    'site_pages'                    => 'Site Pages',
+
 ];

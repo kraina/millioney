@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
 use Gate;
+use App\Property;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -23,8 +24,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
+        $properties = Property::all();
         //return view('admin.users.index')->with('users', $users);
-        return view('admin.index')->with('users', $users);
+        return view('admin.index', compact('users', 'properties'));
 
     }
 

@@ -1299,7 +1299,7 @@
             if (typeof opt.setLegendElemsState === "object") {
                 // setLegendElemsState is an object listing the legend we want to hide/show
                 $.each(opt.setLegendElemsState, function (legendCSSClass, action) {
-                    // Search for the legend
+                    // PropertyType for the legend
                     var $legend = self.$container.find("." + legendCSSClass)[0];
                     if ($legend !== undefined) {
                         // Select all elem inside this legend

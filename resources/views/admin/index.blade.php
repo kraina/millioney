@@ -1,110 +1,143 @@
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+@extends('adminlte::page')
 
-    <title>AdminLTE 3 | Starter</title>
+@section('title', 'AdminLTE')
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- Scripts -->
-    <!-- <script src="{\{ asset('js/app.js') }}" defer></script> -->
-
-</head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <!--- Logout --->
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home.index') }}" >
-                        {{ __('Home') }}
-                    </a>
-                    @can('super-admin')
-                        <a class="dropdown-item" href="{{ route('admin.super.index') }}" >
-                            {{ __('Super Admin Panel') }}
-                        </a>
-                    @endcan
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+@section('content_header')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Properties</h1>
                 </div>
-            </li>
-            <!---./Logout --->
-        </ul>
-    </nav>
-    <!-- /.navbar -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Properties</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+@stop
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        ADMIN PANEL
+@section("content")
         <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
+        <section class="content">
 
-                <main class="py-4">
-                    <div class="container" >
-                        @include('partials.alerts')
-                        @yield('content')
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Projects</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i></button>
                     </div>
-                </main>
-            </div><!-- /.container-fluid -->
-        </div>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped projects">
+                        <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Address
+                            </th>
+                            <!--
+                            <th style="width: 30%">
+                                Team Members
+                            </th>
+                            <th>
+                                Project Progress
+                            </th>
+                            -->
+                            <th style="width: 8%" class="text-center">
+                                Status
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($properties as $property)
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    {{ $property->title }}
+                                </a>
+                                <br/>
+                                <small>
+                                    Updated at {{ date_format($property->updated_at, 'd M Y H:i:s') }}
+                                </small>
+                            </td>
+                            <!--
+                            <td>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar04.png">
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="project_progress">
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
+                                    </div>
+                                </div>
+                                <small>
+                                    57% Complete
+                                </small>
+                            </td>
+                            -->
+                            <td class="project-state">
+                                <span class="badge badge-success">Success</span>
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="{{ route('home.properties.show', $property->id ) }}" target="_blank" rel="nofollow noopener noreferrer" >
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    View
+                                </a>
+                                <a class="btn btn-info btn-sm" href="{{ route('home.properties.edit', $property->id ) }}">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                               <!-- <a class="btn btn-danger btn-sm" href="{\{ route('home.properties.destroy', $property->id ) }}" > -->
+                                   <!-- <i class="fas fa-trash">
+                                    </i> -->
+                                    {!! Form::open(['action' => ['PropertiesController@destroy', $property->id], 'method' => 'POST', 'class' => '']) !!}
+                                    {!! Form::hidden('_method', 'DELETE') !!}
+                                    {{ Form::button('<i class="fas fa-trash"></i> Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+                                    {!! Form::close() !!}
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
         <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+@endsection
 
-    <!-- Control Sidebar -->
 
-    <!-- Main Footer -->
-
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-</body>
-</html>
