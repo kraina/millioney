@@ -177,6 +177,7 @@ return [
 
         /** My Providers **/
         /** Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,**/
+        Yajra\DataTables\DataTablesServiceProvider::class,
 
     ],
 
@@ -229,6 +230,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+            /** My aliases */
+
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 
