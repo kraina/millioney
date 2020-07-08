@@ -12,6 +12,10 @@ class PropertyType implements Filterable
 
     public static function apply(Builder $builder, $value)
     {
-        return $builder->where('propertyType', $value);
+        if(!is_array($value)) {
+            $value = explode(', ', $value);
+        }
+        //return $builder->where('propertyType', $value);
+        return $builder->whereIn('propertyType', $value);
     }
 }
