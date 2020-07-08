@@ -17,11 +17,14 @@ Route::get('/',                     'MenuPagesController@index'     )->name('ind
 Route::get('/blog',                 'MenuPagesController@blog'      )->name('blog');
 Route::get('/contact',              'MenuPagesController@contact'   )->name('contact');
 Route::get('/about',                'MenuPagesController@about'     )->name('about');
-Route::get('/listings',             'MenuPagesController@listings'  )->name('listings');
+Route::get('/listings',             'MenuPagesController@ajax_listings'  )->name('listings');
 Route::get('/single',               'MenuPagesController@single'    )->name('single');
 Route::get('/property/{property}',  'MenuPagesController@property'  )->name('property');
 Route::get('/categories',           'MenuPagesController@categories')->name('categories');
 Route::get('/category/{category}',  'MenuPagesController@category'  )->name('category');
+
+Route::get('/ajax_filter_input_property_type', 'MenuPagesController@ajaxFilterInputPropertyType')->name('ajax_filter_input_property_type');
+Route::get('/ajax_listings', 'MenuPagesController@ajax_listings')->name('ajax_listings');
 
 Auth::routes();
 Route::get('properties/img-dropzone-fetch/{id}','PropertiesController@imgDropzoneFetch')->name('home.properties.img-dropzone-fetch');
@@ -42,7 +45,6 @@ Route::group([
             ]]);
 
     });
-
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
