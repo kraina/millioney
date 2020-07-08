@@ -50,12 +50,13 @@ class MenuPagesController extends Controller
     }
     public function ajax_listings(Request $request, Property $property)
     {
-        if(!empty($request->property_type)) {
+        if (!empty($request->property_type)) {
             //$properties = Property::orderBy('created_at', 'desc')->get();
             $properties = $property->getPropertiesBySearch($request)->get();
             return view('ajax_listing', ['properties' => $properties]);
         }
-        $properties = $property->getPropertiesBySearch($request)->get();
+        $properties = $property->get();
+        //$properties = $property->getPropertiesBySearch($request)->get();
         return view('listings', ['properties' => $properties]);
     }
     function ajaxFilterInputPropertyType(Request $request)
