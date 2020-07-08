@@ -41,6 +41,8 @@
                 //$('#countryList2').text($('#country_name2').val());
                 //$('#countryList2').text($('#country_name2').val());
                 var property_type = $('#property_type').val();
+                if(property_type === '')
+                    property_type = "ALL";
                 //console.log(property_type);
                 $.ajax({
                     type: 'get',
@@ -50,12 +52,12 @@
                     cache: false,
                     data: "property_type=" + property_type,
                     success: function(response){
-                        $('#listings_container').replaceWith(response);
+                            $('#listings_container').replaceWith(response);
                         //console.log(response);
+                        //alert(response);
                     }
                 });
                 //alert(property_type);
-
             });
         });
 </script>
