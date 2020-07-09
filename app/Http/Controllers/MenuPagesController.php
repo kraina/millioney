@@ -50,21 +50,24 @@ class MenuPagesController extends Controller
     }
     public function ajax_listings(Request $request, Property $property)
     {
-        if (!empty($request->property_type)) {
-            //$properties = Property::orderBy('created_at', 'desc')->get();
-            $properties = $property->getPropertiesBySearch($request)->get();
-            return view('ajax_listing', ['properties' => $properties]);
+        if(request()->ajax()) {
+            if(!empty($request->property_type)) {
+                if ($request->property_type === "ALL") {
+                    $properties = $property->orderBy('created_at', 'desc')->get();
+                    return view('layouts.ajax_listing', ['properties' => $properties]);
+                }
+                $properties = $property->getPropertiesBySearch($request)->orderBy('created_at', 'desc')->get();
+                return view('layouts.ajax_listing', ['properties' => $properties]);
+            }
         }
-        $properties = $property->get();
-        //$properties = $property->getPropertiesBySearch($request)->get();
+        $properties = $property->getPropertiesBySearch($request)->orderBy('created_at', 'desc')->get();
         return view('listings', ['properties' => $properties]);
     }
     function ajaxFilterInputPropertyType(Request $request)
     {
         $query = !empty($request->property_type) ? ($request->property_type) : null;
-        $properties = Property::get();
-        $properties2 = Property::select('propertyType')->groupBy('propertyType')->get();
-        foreach($properties2 as $property) {
+        $properties = Property::select('propertyType')->groupBy('propertyType')->get();
+        foreach($properties as $property) {
             $property_types[] = $property->propertyType;
         }
         echo json_encode($property_types);

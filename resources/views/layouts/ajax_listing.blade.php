@@ -1,17 +1,11 @@
-<!-- Listings Container -->
+
 <div class="listings_container" id="listings_container">
 @foreach($properties as $property)
-
     <!-- Listing -->
         <div class="listing_box house sale">
             <div class="listing">
                 <div class="listing_image">
                     <div class="listing_image_container">
-                        <!-- <img src="{\{asset('images/property'.$\property->id.'_1.jpg')\}}" alt=""> -->
-                        <!-- @\foreach($property->properties_photo()->get() as $propertyPhoto ) -->
-                        <!-- <img src="\{\{\ asset('images/'.$propertyPhoto->first()->name) \}\}" alt=""> -->
-                        <!-- @\break -->
-                        <!--   @\endforeach -->
                         @if(!is_null($property->properties_photo_cover()))
                             <img src="{{asset('storage/properties_images/'.$property->properties_photo_cover()->name) }}" alt="">
                         @endif
@@ -50,6 +44,8 @@
                 </div>
             </div>
         </div>
-
 @endforeach
 </div>
+
+
+
