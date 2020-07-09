@@ -6,6 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="myHOME - real estate template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+@yield('meta')
 <link rel="stylesheet" type="text/css" href="{{asset('styles/bootstrap-4.1.2/bootstrap.min.css')}}">
 <link href="{{asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 @yield('style')
@@ -34,5 +35,6 @@
 <script src="{{asset('plugins/progressbar/progressbar.min.js')}}"></script>
 <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 @yield('script')
+
 </body>
 </html>

@@ -24,7 +24,7 @@ Route::get('/categories',           'MenuPagesController@categories')->name('cat
 Route::get('/category/{category}',  'MenuPagesController@category'  )->name('category');
 
 Route::get('/ajax_filter_input_property_type', 'MenuPagesController@ajaxFilterInputPropertyType')->name('ajax_filter_input_property_type');
-Route::get('/ajax_listings', 'MenuPagesController@ajax_listings')->name('ajax_listings');
+Route::get('/layouts/ajax_listings', 'MenuPagesController@ajax_listings')->name('ajax_listings');
 
 Auth::routes();
 Route::get('properties/img-dropzone-fetch/{id}','PropertiesController@imgDropzoneFetch')->name('home.properties.img-dropzone-fetch');
