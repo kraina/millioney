@@ -20,32 +20,27 @@
     <script src="{{asset('plugins/Isotope/isotope.pkgd.min.js')}}"></script>
     <script src="{{asset('js/listings.js')}}"></script>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
 
+
     <script>
         $(document).ready(function(){
-            $('#property_type').tokenfield({
-                autocomplete: {
-                    source: function (request, response) {
-                        jQuery.get("{{route('ajax_filter_input_property_type')}}", {
-                            property_type: request.term
-                        }, function (data) {
-                            data = JSON.parse(data);
-                            response(data);
-                        });
-                    },
-                    delay: 100
-                },
-                showAutocompleteOnFocus: true
-            });
-            $('#search_button').click(function(){
-                var property_type = $('#property_type').val();
+            function search_property_rooms(){
+                var property_type = $('#property_type').val().toLowerCase();
+                var rooms = $('#rooms').val();
+                var location = $('#location').val();
                 var token = $('meta[name="csrf_token"]').attr('content');
+                //alert("rooms: " + rooms);
+
                 if(property_type === '')
                     property_type = 'ALL';
-                //console.log(property_type);
+                if(rooms === '')
+                    rooms = 'ALL';
+                if(location === '')
+                    location = 'ALL';
+
+               // console.log(rooms);
                 $.ajax({
                     type: 'get',
                     /*headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},*/
@@ -53,25 +48,110 @@
                     url: "{{route('ajax_listings')}}",
                     ifModified: true,
                     cache: false,
-                    data: "property_type=" + property_type,
+                    data: {property_type: property_type, rooms: rooms, location: location},
                     _token: token,
                     success: function(response){
-                            $.getScript("{{asset('js/listings.js')}}");
-                            $('#listings_container').replaceWith(response);
-                            /*
-                        $.ajax({
-                            method: "GET",
-                            url: "{\{asset('js/listings.js')}}",
-                            dataType: "script"
-                        });
-                        */
-                        //location.reload();
-                        //console.log(response);
-                        //alert(response);
+                        $.getScript("{{asset('js/listings.js')}}");
+                        $('#listings_container').replaceWith(response);
                     }
                 });
-                //alert(property_type);
+            }
+            $('#property_type').tokenfield({
+                autocomplete: {
+                    source: function (request, response) {
+                        jQuery.get("{{route('ajax_filter_input_property_type')}}", {
+                            rooms: request.term
+                        }, function (data) {
+                            data = JSON.parse(data);
+                            console.log(data);
+                            response(data);
+                        });
+                    },
+                    delay: 100
+                },
+                showAutocompleteOnFocus: true
             });
+
+            $('#rooms').tokenfield({
+                autocomplete: {
+                    source: function (request, response) {
+                        jQuery.get("{{route('ajax_filter_input_rooms')}}", {
+                            rooms: request.term
+                        }, function (data) {
+                            data = JSON.parse(data);
+                            console.log(data);
+                            response(data);
+                        });
+                    },
+                    delay: 100
+                },
+                showAutocompleteOnFocus: true
+            });
+            $('#location').tokenfield({
+                autocomplete: {
+                    source: function (request, response) {
+                        jQuery.get("{{route('ajax_filter_input_location')}}", {
+                            rooms: request.term
+                        }, function (data) {
+                            data = JSON.parse(data);
+                            console.log(data);
+                            response(data);
+                        });
+                    },
+                    delay: 100
+                },
+                showAutocompleteOnFocus: true
+            });
+            $("#parent_input").keypress(function (e) {
+                $("#property_type").parent("#parent_input")
+                    .on('keydown keypress', function (e) {
+                        var key=e.keyCode || e.which;
+                        if (key === 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                search_property_rooms();
+            });
+
+            $("#parent_input").keypress(function (e) {
+                $("#rooms").parent("#parent_input")
+                    .on('keydown keypress', function (e) {
+                        var key=e.keyCode || e.which;
+                        if (key === 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                search_property_rooms();
+            });
+            $("#parent_input").keypress(function (e) {
+                $("#location").parent("#parent_input")
+                    .on('keydown keypress', function (e) {
+                        var key=e.keyCode || e.which;
+                        if (key === 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                search_property_rooms();
+            });
+
+            $('#search_button').click(function(){
+                search_property_rooms();
+            });
+            function close() {
+                $('.close').on('click', function(){
+                    search_property_rooms();
+                });
+                $(document).on('click', 'a.close', function(){
+                    //alert('delete');
+                    search_property_rooms();
+                });
+            }
+            $('input').change(function() {
+                close();
+            })
         });
 </script>
         @endsection
@@ -103,8 +183,9 @@
 					<div class="search_container">
 						<div class="search_form_container">
 							<!-- <form action="#" class="search_form" id="search_form"> -->
+                            <div class="search_form">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_inputs d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<div id="parent_input" class="search_inputs d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 										<!-- <input type="text" name="property_type" class="search_input" placeholder="Property type" required="required"> -->
 <!--
                                         <select name="property_type[]" id="property_type" class="search_input" multiple placeholder="Property type" >
@@ -113,9 +194,10 @@
                                             <option value="apartment">Apartment</option>
                                         </select>
                                         -->
+
                                         <input type="text" name="property_type" id="property_type" class="search_input" placeholder="Property type" />
 
-										<!-- <input type="text" name="rooms" class="search_input" placeholder="No rooms" required="required"> -->
+										<input type="text" name="rooms" id="rooms" class="search_input" placeholder="No rooms">
 <!--
                                         <select name="rooms" id="rooms" class="search_input" placeholder="No rooms" >
                                             <option value="1">1</option>
@@ -129,7 +211,7 @@
                                             <option value="9">9</option>
                                         </select>
 -->
-										<!-- <input type="text" name="location" class="search_input" placeholder="Location" required="required"> -->
+										<input type="text" name="location" id="location" class="search_input" placeholder="Location">
 <!--
                                         <select name="location" id="location" class="search_input" placeholder="Location" >
                                             <option value="Kyiv">Kyiv</option>
@@ -143,6 +225,7 @@
 									<button class="search_button" id="search_button">submit listing</button>
 
 								</div>
+                            </div>
 						<!--- </form> -->
 						</div>
 						<div class="extra_search_buttons d-flex flex-row align-items-start justify-content-start">
