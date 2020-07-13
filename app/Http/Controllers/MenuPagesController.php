@@ -51,8 +51,8 @@ class MenuPagesController extends Controller
     public function ajax_listings(Request $request, Property $property)
     {
         if(request()->ajax()) {
-            if(!empty($request->property_type)) {
-                if ($request->property_type === "ALL") {
+            if(!empty($request->rooms)&&!empty($request->property_type)) {
+                if ($request->rooms === "ALL"&&$request->property_type === "ALL"&&$request->location === "ALL") {
                     $properties = $property->orderBy('created_at', 'desc')->get();
                     return view('layouts.ajax_listing', ['properties' => $properties]);
                 }
@@ -71,5 +71,23 @@ class MenuPagesController extends Controller
             $property_types[] = $property->propertyType;
         }
         echo json_encode($property_types);
+    }
+    function ajaxFilterInputRooms(Request $request)
+    {
+        $query = !empty($request->property_type) ? ($request->property_type) : null;
+        $properties = Property::select('NumRooms')->groupBy("NumRooms")->orderBy("NumRooms", "asc")->get();
+        foreach($properties as $property) {
+            $numRooms[] = strval($property->NumRooms);
+        }
+        echo json_encode($numRooms);
+    }
+    function ajaxFilterInputLocation(Request $request)
+    {
+        $query = !empty($request->location) ? ($request->location) : null;
+        $properties = Property::select('location')->groupBy("location")->orderBy("location", "asc")->get();
+        foreach($properties as $property) {
+            $property_location[] = $property->location;
+        }
+        echo json_encode($property_location);
     }
 }
