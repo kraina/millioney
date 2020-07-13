@@ -12,6 +12,12 @@ class Rooms implements Filterable
 
     public static function apply(Builder $builder, $value)
     {
-        return $builder->where('NumRooms','=', $value);
+        if($value === "ALL"){
+            return $builder->where("NumRooms", "!=", $value);
+        }
+        if(!is_array($value)) {
+            $value = explode(', ', $value);
+        }
+        return $builder->whereIn('NumRooms', $value);
     }
 }
