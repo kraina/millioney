@@ -51,7 +51,7 @@ class MenuPagesController extends Controller
     public function ajax_listings(Request $request, Property $property)
     {
         if(request()->ajax()) {
-            if(!empty($request->rooms)&&!empty($request->property_type)) {
+            if(!empty($request->rooms)&&!empty($request->property_type)&&!empty($request->location)) {
                 if ($request->rooms === "ALL"&&$request->property_type === "ALL"&&$request->location === "ALL") {
                     $properties = $property->orderBy('created_at', 'desc')->get();
                     return view('layouts.ajax_listing', ['properties' => $properties]);
