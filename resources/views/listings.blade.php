@@ -26,13 +26,13 @@
 
     <script>
         $(document).ready(function(){
-            function search_property_rooms(){
+            function search_property(){
                 var property_type = $('#property_type').val().toLowerCase();
                 var rooms = $('#rooms').val();
                 var location = $('#location').val();
-                var token = $('meta[name="csrf_token"]').attr('content');
+                var _token = $('meta[name="csrf-token"]').attr('content');
                 //alert("rooms: " + rooms);
-
+                //alert(_token);
                 if(property_type === '')
                     property_type = 'ALL';
                 if(rooms === '')
@@ -48,14 +48,18 @@
                     url: "{{route('ajax_listings')}}",
                     ifModified: true,
                     cache: false,
-                    data: {property_type: property_type, rooms: rooms, location: location},
-                    _token: token,
+                    data: {property_type: property_type, rooms: rooms, location: location, _token: _token},
+                    _token: _token,
                     success: function(response){
                         $.getScript("{{asset('js/listings.js')}}");
                         $('#listings_container').replaceWith(response);
                     }
                 });
             }
+            $("#property_type").on("change", search_property);
+            $("#rooms").on("change", search_property);
+            $("#location").on("change", search_property);
+
             $('#property_type').tokenfield({
                 autocomplete: {
                     source: function (request, response) {
@@ -123,7 +127,7 @@
                         }
                     });
 
-                search_property_rooms();
+                search_property();
             });
             $("#parent_input").keypress(function (e) {
                 $("#location").parent("#parent_input")
@@ -138,15 +142,15 @@
             });
 
             $('#search_button').click(function(){
-                search_property_rooms();
+                search_property();
             });
             function close() {
                 $('.close').on('click', function(){
-                    search_property_rooms();
+                    search_property();
                 });
                 $(document).on('click', 'a.close', function(){
                     //alert('delete');
-                    search_property_rooms();
+                    search_property();
                 });
             }
             $('input').change(function() {
@@ -222,8 +226,7 @@
                                         </select>
 -->
 									</div>
-									<button class="search_button" id="search_button">submit listing</button>
-
+                                    <button class="search_button" id="search_button">submit listing</button>
 								</div>
                             </div>
 						<!--- </form> -->

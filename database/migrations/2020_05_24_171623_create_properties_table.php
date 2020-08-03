@@ -20,13 +20,13 @@ class CreatePropertiesTable extends Migration
             $table->string('title');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->text('categories');
-            $table->text('tags');
+            $table->text('tags')->nullable();
             $table->string('propertyType');
             $table->integer('NumRooms');
             $table->string('address');
             $table->string('location');
             $table->string('country');
-            $table->string('state');
+            $table->string('state')->nullable();
             $table->string('city');
             $table->text('features')->nullable();
             $table->string('videos')->nullable();
