@@ -177,7 +177,7 @@ return [
 
         /** My Providers **/
         /** Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,**/
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        //Yajra\DataTables\DataTablesServiceProvider::class,
 
     ],
 

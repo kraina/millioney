@@ -33,7 +33,13 @@ class PropertiesController extends Controller
      */
     public function create()
     {
-        return view('properties.create');
+        $categories_prop = Property::select("categories")
+            ->groupBy('categories')
+            ->get();
+        $properties_type = Property::select('propertyType')
+            ->groupBy('propertyType')
+            ->get();
+        return view('properties.create', compact('categories_prop','properties_type'));
     }
 
     /**
