@@ -175,8 +175,14 @@ class PropertiesController extends Controller
     public function edit($id)
     {
         $property = Property::where('id', $id)->first();
+        $categories_prop = Property::select("categories")
+            ->groupBy('categories')
+            ->get();
+        $properties_type = Property::select('propertyType')
+            ->groupBy('propertyType')
+            ->get();
         if(Auth::user()->id === $property->user_id) {
-        return view('properties.edit', compact('property'));
+        return view('properties.edit', compact('property', 'categories_prop', 'properties_type'));
         } else {
             return back()->with('message','access forbidden');
         }
@@ -191,7 +197,39 @@ class PropertiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = request()->validate([
+            'title'             => 'required',
+            'description'       => '',
+            'categories'        => '',
+            'tags'              => '',
+            'propertyType'      => '',
+            'NumRooms'          => '',
+            'address'           => 'required',
+            'location'          => '',
+            'country'           => '',
+            'state'             => '',
+            'city'              => '',
+            'features'          => '',
+            'videos'            => '',
+            'nearbyAmenities'   => '',
+            'price'             => '',
+            'constructionStage' => '',
+            'legal'             => '',
+            'outdoorSquare'     => '',
+            'indoorSquare'      => '',
+            'kitchenSquare'     => '',
+            'baths'             => '',
+            'beds'              => '',
+            'garages'           => '',
+            'floor'             => '',
+            'floors'            => '',
+            'completedIn'       => ''
+        ]);
+        if(count($data)>1) {
+            $event = Property::update_property($data, $id);
+        }
+        return back()->with('message','Property Updated');;
+
     }
     function imgDropzoneUpload(Request $request, $id)
     {
