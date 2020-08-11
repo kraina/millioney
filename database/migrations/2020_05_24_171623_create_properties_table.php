@@ -23,8 +23,8 @@ class CreatePropertiesTable extends Migration
             $table->text('tags')->nullable();
             $table->string('propertyType');
             $table->integer('NumRooms');
-            $table->string('address');
-            $table->string('location');
+            $table->string('address')->nullable();
+            $table->string('location')->nullable();
             $table->string('country');
             $table->string('state')->nullable();
             $table->string('city');
@@ -34,7 +34,7 @@ class CreatePropertiesTable extends Migration
             $table->text('description')->nullable();
             $table->double('price')->default(0);
             $table->text('constructionStage')->nullable();
-            $table->text('legal')->nullable();;
+            $table->text('legal')->nullable();
             $table->integer('outdoorSquare')->nullable();
             $table->integer('indoorSquare');
             $table->integer('kitchenSquare')->nullable();

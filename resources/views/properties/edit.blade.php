@@ -88,6 +88,74 @@
             </div>
 
         </div>
+
+    <h1>Edit property</h1>
+    {!! Form::open(['action' => ['PropertiesController@update', $property->id], 'method' => 'PATCH', 'multiple'=>'multiple', 'enctype' => 'multipart/form-data',  'files' => true, 'id' => 'update_property']) !!}
+    @csrf
+    @method("PATCH")
+    <div class="form-group" >
+        {{ Form::label('title', 'Title') }}
+        {{ Form::text('title',$property->title, ['class' => 'form-control', 'placeholder' => 'Title']) }}
     </div>
+    <div class="form-group" >
+        <label for="categories">Вид сделки</label>
+        <select id="categories" name='categories' class="form-control">
+            <option value="{{ $property->categories }}">{{ $property->categories }}</option>
+            @foreach($categories_prop as $category)
+                @if($property->categories !== $category->categories)
+                <option  >{{$category->categories}}</option>
+                @endif
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group" >
+        {{ Form::label('address', 'Address') }}
+        {{ Form::text('address', $property->address, ['class' => 'form-control', 'placeholder' => 'Address']) }}
+    </div>
+    <div class="form-group" >
+        <label for="propertyType">Тип недвижимости</label>
+        <select class="form-control" name="propertyType" id="propertyType">
+            <option value="{{ $property->propertyType }}" >{{ $property->propertyType }}</option>
+            @foreach($properties_type as $property_type)
+                @if($property->propertyType !== $property_type->propertyType)
+                <option>{{$property_type->propertyType}}</option>
+                @endif
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group" >
+        {{ Form::label('NumRooms', 'Number Rooms') }}
+        {{ Form::number('NumRooms', $property->NumRooms, ['class' => 'form-control', 'placeholder' => 'Number Rooms']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('location', 'Location') }}
+        {{ Form::text('location', $property->location, ['class' => 'form-control', 'placeholder' => 'Location']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('country', 'Country') }}
+        {{ Form::text('country', $property->country, ['class' => 'form-control', 'placeholder' => 'Country']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('city', 'City') }}
+        {{ Form::text('city', $property->city, ['class' => 'form-control', 'placeholder' => 'City']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('price', 'Price') }}
+        {{ Form::number('price', $property->price, ['step' => "0.01", 'class' => 'form-control', 'placeholder' => 'Price']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('indoorSquare', 'Indoor Square, m<sup>2</sup>', [], false) }}
+        {{ Form::number('indoorSquare', $property->indoorSquare, ['class' => 'form-control', 'placeholder' => 'Indoor Square, m²']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('beds', 'Number of Beds') }}
+        {{ Form::number('beds', $property->beds, ['class' => 'form-control', 'placeholder' => 'Number of Beds']) }}
+    </div>
+    <div class="form-group" >
+        {{ Form::label('description', 'Description') }}
+        {{ Form::textarea('description', $property->description, ['class' => 'form-control', 'placeholder' => 'Description']) }}
+    </div>
+    {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
+    {!! Form::close() !!}
 
 @endsection
