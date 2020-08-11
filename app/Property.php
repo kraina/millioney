@@ -70,7 +70,6 @@ class Property extends Model
                 'name'=>$filename,
             ]);
         }
-       //return;
     }
     public function properties_photo(){
         return $this->hasMany(PropertiesPhoto::class);
@@ -83,5 +82,13 @@ class Property extends Model
     {
         $builder = (new PropertySearch())->apply($request);
         return $builder;
+    }
+    public static function update_property($fields, $id){
+
+        $event = new static;
+        $event->user_id = Auth::id();
+        $event->where('id', $id)->update($fields);
+
+        return $event;
     }
 }
