@@ -32,64 +32,49 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Dispatcher $events)
     {
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-            if(Gate::allows('manage-users')) {
-                $event->menu->add(['header' => 'ADMIN_MENU']);
+            //if(Gate::allows('manage-users')) {
+            if(Gate::allows('super-admin')) {
 
             //    if(Gate::allows('pages-edit')) {
 
-                    $event->menu->add([
+                $event->menu->add([
+                        'key'    => 'ADMIN_MENU',
+                        'header' => 'ADMIN_MENU',
+                    ],
+                    [
+                        'key'     => 'properties',
+                        'text'    => 'properties',
+                        'icon'    => 'nav-icon fas fa-book',
+                        'url'     => 'admin',
+                        'can'     => 'super-admin',
+                        'submenu' => [
+                            [
+                                'key'  => 'all_properties',
+                                'text' => 'all_properties',
+                                'url'  => 'admin',
+                                'can'  => 'super-admin',
+                            ],
+                        ],
+                    ],
+                    [
+                        'key'     => 'site_pages',
                         'text'    => 'site_pages',
                         'icon'    => 'nav-icon fas fa-book',
                         'url'     => 'admin.super/pages',
                         'can'     => 'super-admin',
                         'submenu' => [
                             [
+                                'key'  => 'page_create',
                                 'text' => 'page_create',
                                 'url'  => 'admin.super/pages/create',
-                                'can' => 'super-admin',
+                                'can'  => 'super-admin',
                             ],
                         ],
-                        ]);
+                    ]
+                );
 
               //  }
             }
         });
-
-
-
-/*
-
-        $menu = new Menu;
-        $menus = $menu->withSubMenus();
-
-        foreach($menus as $menu){
-
-            $arrayMenu = array('text' => '', 'url' => '', 'icon' => '');
-
-            if(count($menu->SubMenu) != NULL){
-                foreach($menu->SubMenu as $submenu){
-                    $arrayMenu[] = array(
-                        'text' => $submenu->name,
-                        'url' => $submenu->url,
-                        'icon' => $submenu->icon
-                    );
-
-                };
-                $event->menu->add([
-                    'text' => $menu->name,
-                    'url' => $menu->url,
-                    'icon' => $menu->icon,
-                    'submenu' => $arrayMenu,
-                ]);
-            }else{
-                $event->menu->add([
-                    'text' => $menu->name,
-                    'url' => $menu->url,
-                    'icon' => $menu->icon,
-                ]);
-            }
-        }
-    });
-*/
     }
 }
