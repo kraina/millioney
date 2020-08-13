@@ -110,24 +110,32 @@
                                 <span class="badge badge-success">Success</span>
                             </td>
                             <td class="project-actions text-right">
+                                <div class="row">
+                                    <div class="col" >
                                 <a class="btn btn-primary btn-sm" href="{{ route('home.properties.show', $property->id ) }}" target="_blank" rel="nofollow noopener noreferrer" >
                                     <i class="fas fa-folder">
                                     </i>
                                     View
                                 </a>
+                                    </div>
+                                    <div  class="col-auto">
                                 <a class="btn btn-info btn-sm" href="{{ route('home.properties.edit', $property->id ) }}">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
                                 </a>
+                                    </div>
                                <!-- <a class="btn btn-danger btn-sm" href="{\{ route('home.properties.destroy', $property->id ) }}" > -->
                                    <!-- <i class="fas fa-trash">
                                     </i> -->
+                                    <div  class="col-auto">
                                     {!! Form::open(['action' => ['PropertiesController@destroy', $property->id], 'method' => 'POST', 'class' => '']) !!}
                                     {!! Form::hidden('_method', 'DELETE') !!}
                                     {{ Form::button('<i class="fas fa-trash"></i> Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
                                     {!! Form::close() !!}
                                 </a>
+                                </div>
+                            </div>
                             </td>
                         </tr>
                         @endforeach

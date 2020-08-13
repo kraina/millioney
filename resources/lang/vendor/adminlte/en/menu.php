@@ -16,10 +16,13 @@ return [
     'important'                     => 'Important',
     'warning'                       => 'Warning',
     'information'                   => 'Information',
-    'my_properties'                  => 'My Properties',
+    'my_properties'                 => 'My Properties',
     'create_property'               => 'Create Property',
     'my_properties_list'            => 'List',
     'ADMIN_MENU'                    => "ADMIN MENU",
     'site_pages'                    => 'Site Pages',
+    'page_create'                   => 'Create Page',
+    'properties'                    => 'Properties',
+    'all_properties'                => "All Properties",
 
 ];

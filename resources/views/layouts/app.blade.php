@@ -56,7 +56,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @can('manage-users')
-                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}" >
+                                    <!--<a class="dropdown-item" href="{\{ route('admin.users.index') }}" > -->
+                                    <a class="dropdown-item" href="{{ route('admin.index') }}" >
                                         {{ __('Users Management') }}
                                     </a>
                                     @endcan
