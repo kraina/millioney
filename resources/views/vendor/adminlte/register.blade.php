@@ -29,7 +29,7 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">{{ __('adminlte::adminlte.register_message') }}</p>
-                <form action="{{ $register_url }}" method="post">
+                <form action="{{ \LaravelLocalization::localizeURL($register_url) }}" method="post">
                     {{ csrf_field() }}
 
                     <div class="input-group mb-3">

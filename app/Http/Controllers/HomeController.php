@@ -5,6 +5,7 @@ use Auth;
 use App\Category;
 use App\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 
 class HomeController extends Controller
