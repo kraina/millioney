@@ -33,16 +33,33 @@
                         <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li class="nav-item active">
+                                        <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['header']  }}
+                                        </a>
+                                    </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </nav>
                 <div class="log_reg d-flex flex-row align-items-center justify-content-start">
                     <ul class="d-flex flex-row align-items-start justify-content-start">
                         <!-- Authentication Links -->
                         @guest
                             <li>
-                                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a href="{{ \LaravelLocalization::localizeURL(route('login')) }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li>
-                                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a href="{{ \LaravelLocalization::localizeURL(route('register')) }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -52,16 +69,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('home.index') }}">
+                                    <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('home.index')) }}">
                                         {{ __('Home') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('logout')) }}"
                                        onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ \LaravelLocalization::localizeURL(route('logout')) }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
@@ -77,11 +94,11 @@
             <div class="logo"><a href="#">my<span>home</span></a></div>
             <nav class="main_nav">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                    <li class="{{ Request::path() === '/' ? 'active' : ''}}"><a href="{{route('index')}}">Home</a></li>
-                    <li class="{{ Request::path() === 'about' ? 'active' : ''}}"><a href="{{route('about')}}">About us</a></li>
-                    <li class="{{ Request::path() === 'listings' ? 'active' : ''}}"><a href="{{route('listings')}}">Listings</a></li>
-                    <li class="{{ Request::path() === 'blog' ? 'active' : ''}}"><a href="{{route('blog')}}">News</a></li>
-                    <li class="{{ Request::path() === 'contact' ? 'active' : ''}}"><a href="{{route('contact')}}">Contact</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('/') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('index'))}}">Home</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('about') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('about'))}}">About us</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('listings') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('listings'))}}">Listings</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('blog') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('blog'))}}">News</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('contact') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('contact'))}}">Contact</a></li>
                 </ul>
             </nav>
             <div class="submit ml-auto"><a href="#">submit listing</a></div>
@@ -103,11 +120,11 @@
             </div>
             <nav class="menu_nav">
                 <ul>
-                    <li><a href="{{route('index')}}">Home</a></li>
-                    <li><a href="{{route('about')}}">About us</a></li>
-                    <li><a href="{{route('listings')}}">Listings</a></li>
-                    <li><a href="{{route('blog')}}">News</a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
+                    <li><a href="{{\LaravelLocalization::localizeURL(route('index'))}}">Home</a></li>
+                    <li><a href="{{\LaravelLocalization::localizeURL(route('about'))}}">About us</a></li>
+                    <li><a href="{{\LaravelLocalization::localizeURL(route('listings'))}}">Listings</a></li>
+                    <li><a href="{{\LaravelLocalization::localizeURL(route('blog'))}}">News</a></li>
+                    <li><a href="{{\LaravelLocalization::localizeURL(route('contact'))}}">Contact</a></li>
                 </ul>
             </nav>
         </div>

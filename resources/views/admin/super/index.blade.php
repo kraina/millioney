@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,21 +36,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home.index') }}" >
+                    <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('home.index')) }}" >
                         {{ __('Home') }}
                     </a>
                     @can('manage-users')
-                        <a class="dropdown-item" href="{{ route('admin.index') }}" >
+                        <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('admin.index')) }}" >
                             {{ __('Users Management') }}
                         </a>
                     @endcan
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('logout')) }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ \LaravelLocalization::localizeURL(route('logout')) }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>
