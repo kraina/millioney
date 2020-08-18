@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">{{ __('adminlte::adminlte.login_message') }}</p>
-                <form action="{{ $login_url }}" method="post">
+                <form action="{{ \LaravelLocalization::localizeURL($login_url) }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
@@ -85,7 +85,7 @@
                         </a>
                     </p>
                 @endif
-                
+
                 @if ($register_url)
                     <p class="mb-0">
                         <a href="{{ $register_url }}">

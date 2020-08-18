@@ -88,15 +88,15 @@
                                     <img src="{{asset('images/listing_1.jpg')}}" alt="">
                                 </div>
                                 <div class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                    <div class="listing_small_tag tag_house"><a href="{{ route('listings') }}">house</a></div>
-                                    <div class="listing_small_tag tag_sale"><a href="{{ route('listings') }}">for sale</a></div>
+                                    <div class="listing_small_tag tag_house"><a href="{{ \LaravelLocalization::localizeURL(route('listings')) }}">house</a></div>
+                                    <div class="listing_small_tag tag_sale"><a href="{{ \LaravelLocalization::localizeURL(route('listings')) }}">for sale</a></div>
                                 </div>
                                 <div class="listing_small_price">$ 562 346</div>
                             </div>
                             <div class="listing_small_content">
                                 <div class="listing_small_location d-flex flex-row align-items-start justify-content-start">
                                     <img src="{{asset('images/icon_1.png')}}" alt="">
-                                    <a href="{{ route("single") }}">280 Doe Meadow Drive Landover, MD 20785</a>
+                                    <a href="{{ \LaravelLocalization::localizeURL(route("single")) }}">280 Doe Meadow Drive Landover, MD 20785</a>
                                 </div>
                                 <div class="listing_small_info">
                                     <ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
@@ -131,11 +131,11 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
                             <nav class="footer_nav order-md-2 order-1 ml-md-auto">
                                 <ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-                                    <li><a href="{{route('index')}}">Home</a></li>
-                                    <li><a href="{{route('about')}}">About us</a></li>
-                                    <li><a href="{{route('listings')}}">Listings</a></li>
-                                    <li><a href="{{route('blog')}}">News</a></li>
-                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('index'))}}">Home</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('about'))}}">About us</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('listings'))}}">Listings</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('blog'))}}">News</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('contact'))}}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
