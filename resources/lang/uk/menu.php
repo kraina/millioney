@@ -13,9 +13,10 @@ return [
     |
     */
 
-    'home'      =>'Home',
-    'about_us'  =>'About us',
-    'listings'  =>'Listings',
-    'news'      =>'News',
-    'contact'   =>"Contact",
+    'home'      =>'Головна',
+    'about_us'  =>'Про нас',
+    'listings'  =>'Оголошення',
+    'news'      =>'Новини',
+    'contact'   =>"Контакти",
+    'submit_listing'    =>"знайти нерухомість",
 ];

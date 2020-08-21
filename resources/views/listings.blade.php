@@ -170,7 +170,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_content text-center">
-						<div class="home_title">Listings</div>
+						<div class="home_title">@lang('menu.listings')</div>
 					</div>
 				</div>
 			</div>
@@ -199,9 +199,9 @@
                                         </select>
                                         -->
 
-                                        <input type="text" name="property_type" id="property_type" class="search_input" placeholder="Property type" />
+                                        <input type="text" name="property_type" id="property_type" class="search_input" placeholder="@lang('pages.property_type')" />
 
-										<input type="text" name="rooms" id="rooms" class="search_input" placeholder="No rooms">
+										<input type="text" name="rooms" id="rooms" class="search_input" placeholder="@lang('pages.no_rooms')">
 <!--
                                         <select name="rooms" id="rooms" class="search_input" placeholder="No rooms" >
                                             <option value="1">1</option>
@@ -215,7 +215,7 @@
                                             <option value="9">9</option>
                                         </select>
 -->
-										<input type="text" name="location" id="location" class="search_input" placeholder="Location">
+										<input type="text" name="location" id="location" class="search_input" placeholder="@lang('pages.location')">
 <!--
                                         <select name="location" id="location" class="search_input" placeholder="Location" >
                                             <option value="Kyiv">Kyiv</option>
@@ -226,7 +226,7 @@
                                         </select>
 -->
 									</div>
-                                    <button class="search_button" id="search_button">submit listing</button>
+                                    <button class="search_button" id="search_button">@lang('menu.submit_listing')</button>
 								</div>
                             </div>
 						<!--- </form> -->
@@ -240,10 +240,7 @@
 			</div>
 		</div>
 	</div>
-
-
                         <!-- Listings -->
-
 	<div class="listings">
 		<div class="container">
 			<div class="row">

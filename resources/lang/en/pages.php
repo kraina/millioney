@@ -13,10 +13,8 @@ return [
     |
     */
 
-    'home'              =>'Home',
-    'about_us'          =>'About us',
-    'listings'          =>'Listings',
-    'news'              =>'News',
-    'contact'           =>'Contact',
-    'submit_listing'    =>'submit listing'
+    'property_type'     =>'Property type',
+    'no_rooms' => 'No rooms',
+    'location' => 'Location',
+
 ];

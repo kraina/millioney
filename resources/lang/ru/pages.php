@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'property_type'     =>'Property type',
-    'no_rooms' => 'No rooms',
-    'location' => 'Location',
+    'property_type'     =>'Тип недвижимости',
+    'no_rooms' => 'Количество комнат',
+    'location' => 'Местонахождение',
 
 ];
