@@ -55,11 +55,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li>
-                                <a href="{{ \LaravelLocalization::localizeURL(route('login')) }}">{{ __('Login') }}</a>
+                                <a href="{{ \LaravelLocalization::localizeURL(route('login')) }}">@lang('auth.login')</a>
                             </li>
                             @if (Route::has('register'))
                                 <li>
-                                    <a href="{{ \LaravelLocalization::localizeURL(route('register')) }}">{{ __('Register') }}</a>
+                                    <a href="{{ \LaravelLocalization::localizeURL(route('register')) }}">@lang('auth.register')</a>
                                 </li>
                             @endif
                         @else
@@ -70,12 +70,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('home.index')) }}">
-                                        {{ __('Home') }}
+                                        @lang('auth.my_account')
                                     </a>
                                     <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('logout')) }}"
                                        onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        @lang('auth.logout')
                                     </a>
 
                                     <form id="logout-form" action="{{ \LaravelLocalization::localizeURL(route('logout')) }}" method="POST" style="display: none;">
@@ -91,17 +91,17 @@
 
         <!-- Header Content -->
         <div class="header_content d-flex flex-row align-items-center justify-content-start">
-            <div class="logo"><a href="#">my<span>home</span></a></div>
+            <div class="logo"><a href="{{LaravelLocalization::localizeURL(route('index'))}}">my<span>home</span></a></div>
             <nav class="main_nav">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('/') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('index'))}}">Home</a></li>
-                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('about') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('about'))}}">About us</a></li>
-                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('listings') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('listings'))}}">Listings</a></li>
-                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('blog') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('blog'))}}">News</a></li>
-                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('contact') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('contact'))}}">Contact</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('/') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('index'))}}">@lang('menu.home')</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('about') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('about'))}}">@lang('menu.about_us')</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('listings') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('listings'))}}">@lang('menu.listings')</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('blog') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('blog'))}}">@lang('menu.news')</a></li>
+                    <li class="{{ Request::path() === LaravelLocalization::localizeURL('contact') ? 'active' : ''}}"><a href="{{LaravelLocalization::localizeURL(route('contact'))}}">@lang('menu.contact')</a></li>
                 </ul>
             </nav>
-            <div class="submit ml-auto"><a href="#">submit listing</a></div>
+            <div class="submit ml-auto"><a href="{{LaravelLocalization::localizeURL(route('listings'))}}">@lang('menu.submit_listing')</a></div>
             <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
         </div>
 
@@ -114,8 +114,38 @@
         <div class="menu_log_reg">
             <div class="log_reg d-flex flex-row align-items-center justify-content-end">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
+                    <!-- Authentication Links -->
+                    @guest
+                        <li>
+                            <a href="{{ \LaravelLocalization::localizeURL(route('login')) }}">@lang('auth.login')</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li>
+                                <a href="{{ \LaravelLocalization::localizeURL(route('register')) }}">@lang('auth.register')</a>
+                            </li>
+                        @endif
+                    @else
+                            <li>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('home.index')) }}">
+                                        @lang('auth.my_account')
+                                    </a>
+                                    <a class="dropdown-item" href="{{ \LaravelLocalization::localizeURL(route('logout')) }}"
+                                       onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                        @lang('auth.logout')
+                                    </a>
+
+                                    <form id="logout-form" action="{{ \LaravelLocalization::localizeURL(route('logout')) }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                 </ul>
             </div>
             <nav class="menu_nav">

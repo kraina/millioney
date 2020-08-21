@@ -13,11 +13,10 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'login' =>"Login",
-    'register' => "Register",
-    'my_account' => "My Account",
-    'logout' => 'Logout',
-
+    'home'      =>'Главная',
+    'about_us'  =>'О Нас',
+    'listings'  =>'Объявления',
+    'news'      =>'Новости',
+    'contact'   =>"Контакты",
+    'submit_listing'    =>'найти недвижимость',
 ];

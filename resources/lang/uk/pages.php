@@ -13,11 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'login' =>"Login",
-    'register' => "Register",
-    'my_account' => "My Account",
-    'logout' => 'Logout',
+    'property_type'     =>'Тип нерухомості',
+    'no_rooms' => 'Кількість кімнат',
+    'location' => 'Місцезнаходження',
 
 ];
