@@ -8,7 +8,7 @@
                     <!-- Footer Column -->
                     <div class="col-xl-3 col-lg-6 footer_col">
                         <div class="footer_about">
-                            <div class="footer_logo"><a href="#">my<span>home</span></a></div>
+                            <div class="footer_logo"><a href="{{LaravelLocalization::localizeURL(route('index'))}}">my<span>home</span></a></div>
                             <div class="footer_text">
                                 <p>Nulla aliquet bibendum sem, non placerat risus venenatis at. Prae sent vulputate bibendum dictum. Cras at vehicula urna. Suspendisse fringilla lobortis justo, ut tempor leo cursus in.</p>
                             </div>
@@ -21,7 +21,7 @@
                                     <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="footer_submit"><a href="#">submit listing</a></div>
+                            <div class="footer_submit"><a href="{{LaravelLocalization::localizeURL(route('listings'))}}">@lang('menu.submit_listing')</a></div>
                         </div>
                     </div>
 
@@ -52,10 +52,10 @@
                                 <div class="footer_title">Usefull Links</div>
                                 <ul>
                                     <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Listings</a></li>
+                                    <li><a href="{{LaravelLocalization::localizeURL(route('listings'))}}">@lang('menu.listings')</a></li>
                                     <li><a href="#">Featured Properties</a></li>
                                     <li><a href="#">Contact Agents</a></li>
-                                    <li><a href="#">About us</a></li>
+                                    <li><a href="{{LaravelLocalization::localizeURL(route('about'))}}">@lang('menu.about_us')</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -131,11 +131,11 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
                             <nav class="footer_nav order-md-2 order-1 ml-md-auto">
                                 <ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-                                    <li><a href="{{\LaravelLocalization::localizeURL(route('index'))}}">Home</a></li>
-                                    <li><a href="{{\LaravelLocalization::localizeURL(route('about'))}}">About us</a></li>
-                                    <li><a href="{{\LaravelLocalization::localizeURL(route('listings'))}}">Listings</a></li>
-                                    <li><a href="{{\LaravelLocalization::localizeURL(route('blog'))}}">News</a></li>
-                                    <li><a href="{{\LaravelLocalization::localizeURL(route('contact'))}}">Contact</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('index'))}}">@lang('menu.home')</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('about'))}}">@lang('menu.about_us')</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('listings'))}}">@lang('menu.listings')</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('blog'))}}">@lang('menu.news')</a></li>
+                                    <li><a href="{{\LaravelLocalization::localizeURL(route('contact'))}}">@lang('menu.contact')</a></li>
                                 </ul>
                             </nav>
                         </div>

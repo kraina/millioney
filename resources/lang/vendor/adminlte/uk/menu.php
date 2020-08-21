@@ -16,4 +16,12 @@ return [
     'important'                     => 'Важливо',
     'warning'                       => 'Увага',
     'information'                   => 'Інформація',
+    'my_properties'                 => 'Моя Нерухомість',
+    'create_property'               => "Додати Об'єкт",
+    'my_properties_list'            => 'Список',
+    'ADMIN_MENU'                    => 'МЕНЮ АДМІНА',
+    'site_pages'                    => 'Сторінки Сайту',
+    'page_create'                   => 'Додати Сторінку',
+    'properties'                    => 'Нерухомість',
+    'all_properties'                => "Вся Нерухомість",
 ];
